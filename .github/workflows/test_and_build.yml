@@ -12,8 +12,8 @@ jobs:
   build:
   
   name: get-token
-
-       "on":
+  
+  
         push: { branches: ["token"] }
 
         jobs:
