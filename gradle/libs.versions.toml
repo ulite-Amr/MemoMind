@@ -9,7 +9,7 @@ androidxannotation = { module = "androidx.annotation:annotation", version.ref = 
 androidxconstraintlayout = { module = "androidx.constraintlayout:constraintlayout", version = "2.1.4" }
 androidxcorektx = { module = "androidx.core:core-ktx", version = "1.9.0" }
 androidxappcompat = { module = "androidx.appcompat:appcompat", version = "1.6.0" }
-material = { module = "com.google.android.material:material", version = "1.8.0-rc01"}
+material = { module = "com.google.android.material:material", version = "1.8.0"}
 blangj = { module = "com.blankj:utilcodex", version = "1.31.1"}
 ossLicenses = { module = "com.google.android.gms:play-services-oss-licenses", version = "17.0.0"}
 swiperefreshlayout = { module = "androidx.swiperefreshlayout:swiperefreshlayout", version = "1.2.0-alpha01"}
