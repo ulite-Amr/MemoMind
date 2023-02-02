@@ -50,14 +50,14 @@ public class MainActivity extends BaseActivity {
     drawerLayout = binding.drower;
     navigationView = binding.navigationView;
     // added Menu In Toolbar
-    DrowerHandler();
-    droweraction();
 
     preferences = PreferenceManager.getDefaultSharedPreferences(this);
 
     String title = preferences.getString("add_name_home", "NoteScribe");
 
     getSupportActionBar().setTitle(title);
+    DrowerHandler();
+    droweraction();
 
     binding.fab.setOnClickListener(n -> FabClick());
     binding.appBar.setLiftOnScrollTargetViewId(androidx.preference.R.id.recycler_view);

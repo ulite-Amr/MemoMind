@@ -288,6 +288,17 @@
             </HorizontalScrollView>
 
         </LinearLayout>
+        
+        <android.widget.LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:orientation="horizontal"
+           >
+          
+            
+            
+        </android.widget.LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
