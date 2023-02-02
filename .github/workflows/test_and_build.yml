@@ -3,21 +3,16 @@ name: Android CI
 on:
   push:
     paths-ignore:
+      -  **.md 
+      -  **.txt 
       -  .github/** 
       -  .idea/** 
+      -  !.github/workflows/** 
   pull_request:
   workflow_dispatch:
-  branches: ["main"]
 
 jobs:
-        - name: Check out code
-        uses: actions/checkout@v3
-
-      - name: Get registration token
-        id: getRegToken
-        run: |
-          curl -X POST -H \"Accept: application/vnd.github.v3+json\"  -H  Authorization: token ${{ secrets.GITHUB_TOKEN }}  https://api.github.com/repos/myprofile/myrepo/actions/runners/registration-token
-
+  build:
     name: Build debug APK
     runs-on: ubuntu-latest
     steps:
