@@ -2,10 +2,13 @@ name: Android CI
 
 on:
   push:
+<<<<<<< HEAD
     paths-ignore:
       -  **.txt 
       -  .github/** 
       -  .idea/**
+=======
+>>>>>>> 45c60fd5b5e2d0c5985a54fb3cc9ed6989578c0a
   pull_request:
   workflow_dispatch:
 
