@@ -19,7 +19,7 @@ updates:
     directory:  / 
     schedule:
       interval: main
-      time:  10:00 
+      time:  10:01
     open-pull-requests-limit: 50
     target-branch: main
 
