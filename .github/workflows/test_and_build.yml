@@ -3,8 +3,6 @@ name: Android CI
 on:
   push:
     paths-ignore:
-      -  **.md 
-      -  **.txt 
       -  .github/** 
       -  .idea/** 
   pull_request:
