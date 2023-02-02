@@ -7,7 +7,7 @@ on:
       -  .idea/** 
   pull_request:
   workflow_dispatch:
-  { branches: ["token"] }
+  branches: ["main"]
 
 jobs:
   build:
