@@ -7,27 +7,12 @@ on:
       -  .idea/** 
   pull_request:
   workflow_dispatch:
+  { branches: ["token"] }
 
 jobs:
   build:
-  
-  name: get-token
-  
-  
-        push: { branches: ["token"] }
-
-        jobs:
-  
-        print-token:
-        permissions: write-all
-        name: print-token
-        environment: dev
-        # needs: pre-pkr
-        runs-on: ubuntu-latest
-
-        steps:
         - name: Check out code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Get registration token
         id: getRegToken
