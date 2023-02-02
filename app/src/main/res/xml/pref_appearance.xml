@@ -1,0 +1,23 @@
+<PreferenceScreen   xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+       <ListPreference
+            android:defaultValue="auto"
+            android:dialogTitle="Set Theme"
+            android:entries="@array/theme"
+            android:entryValues="@array/theme_value"
+            app:useSimpleSummaryProvider="true"
+            app:key="notes_theme"
+            app:title="Theme" />
+
+
+        <SwitchPreferenceCompat
+            app:key="@string/key_dynamic"
+            app:title="@string/enable_dynamic"
+            app:defaultValue="false"
+            app:summary="@string/dynamic_des"
+            app:isPreferenceVisible="false"
+                
+        />
+
+</PreferenceScreen>

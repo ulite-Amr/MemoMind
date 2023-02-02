@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--Keys-->
+    <string name="key_theme" translatable="false">notes_theme</string>
+    <string name="key_app_version" translatable="false">notes_app_version</string>
+    <string name="key_discord" translatable="false">notes_discord_link</string>
+    <string name="key_github" translatable="false">notes_github_link</string>
+    <string name="key_row_style" translatable="false">rows_style</string>
+    <string name="key_name_home" translatable="false">add_name_home</string>
+    <string name="key_dynamic" translatable="false">dymanic_color</string>   
+    <string name="key_code_colors" translatable="false">code_colors</string>
+    
+
+    
+    <!-- lists dialog -->
+    <string-array name="rows_style">
+        <item>Default</item>
+        <item>style [1]</item>
+        <item>style [2]</item>
+        <item>style [3]</item>
+    </string-array>
+
+    <string-array name="row_style_values">
+        <item>default</item>
+        <item>style1</item>
+        <item>style2</item>
+        <item>style3</item>
+    </string-array>
+
+       <string-array name="theme">
+        <item>@string/theme_auto</item>
+        <item>@string/theme_light</item>
+        <item>@string/theme_dark</item>
+    </string-array>
+    <string-array name="theme_value">
+        <item>auto</item>
+        <item>light</item>
+        <item>dark</item>
+    </string-array>
+    
+    
+    
+
+</resources>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceScreen
+            app:fragment="com.uliteteam.notes.fragment.settings.AppearanceSettingsFragment"
+            app:key="appearance"
+            app:title="@string/appearance" />
+
+    <PreferenceScreen
+            app:fragment="com.uliteteam.notes.fragment.settings.HomeSettingsFragment"
+            app:key="@string/home_string"
+            app:title="@string/home_string" />
+    
+    <PreferenceScreen
+            app:fragment="com.uliteteam.notes.fragment.settings.NoteSettingsFragment"
+            app:key="@string/pref_note"
+            app:title="@string/pref_note" />    
+
+    <PreferenceScreen
+            app:fragment="com.uliteteam.notes.fragment.settings.AboutFragment"
+            app:key="about"
+            app:title="@string/about" />
+
+</PreferenceScreen>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+     xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:app="http://schemas.android.com/apk/res-auto"
+     xmlns:tools="http://schemas.android.com/tools"
+     android:layout_height="match_parent"
+     android:layout_width="match_parent"
+     android:id="@+id/_coordinator">
+
+    <com.google.android.material.appbar.AppBarLayout
+         android:layout_height="wrap_content"
+         android:layout_width="match_parent"
+         app:liftOnScroll="true"
+         android:id="@+id/app_bar">
+
+        <com.google.android.material.appbar.MaterialToolbar
+             android:layout_height="wrap_content"
+             android:layout_width="match_parent"
+             app:title=" "
+             android:id="@+id/toolbar" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <LinearLayout
+         android:layout_height="match_parent"
+         android:layout_width="match_parent"
+         app:layout_behavior="@string/appbar_scrolling_view_behavior"
+         android:orientation="vertical">
+
+        <LinearLayout
+             android:layout_height="match_parent"
+             android:layout_width="match_parent"
+             android:orientation="vertical"
+             android:id="@+id/editorContinar">
+
+            <EditText
+                 android:layout_height="wrap_content"
+                 android:layout_width="match_parent"
+                 android:imeOptions="actionNext"
+                 android:background="@android:color/transparent"
+                 android:hint="@string/title"
+                 android:layout_margin="8dp"
+                 android:padding="8dp"
+                 android:textSize="20sp"
+                 android:singleLine="true"
+                 android:id="@+id/noteTitle"
+                 android:textStyle="bold" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                 android:layout_height="match_parent"
+                 android:layout_width="match_parent"
+                 android:scrollbars="vertical"
+                 android:background="@android:color/transparent"
+                 android:gravity="start|top"
+                 android:hint="@string/noteEdit"
+                 android:layout_margin="8dp"
+                 android:padding="8dp"
+                 android:textSize="16sp"
+                 android:layout_weight="1"
+                 android:id="@+id/content" />
+        </LinearLayout>
+        <LinearLayout
+             android:layout_height="match_parent"
+             android:layout_width="match_parent"
+             android:orientation="vertical"
+             android:id="@+id/previewContinar">
+
+            <android.widget.TextView
+                 android:layout_height="wrap_content"
+                 android:layout_width="match_parent"
+                 android:imeOptions="actionNext"
+                 android:background="@android:color/transparent"
+                 android:hint="@string/title"
+                 android:layout_margin="8dp"
+                 android:padding="8dp"
+                 android:textSize="20sp"
+                 android:singleLine="true"
+                 android:id="@+id/noteTitleText"
+                 android:textStyle="bold" />
+            <android.widget.ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <android.widget.TextView
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:background="@android:color/transparent"
+                    android:gravity="start|top"
+                    android:hint="@string/noteEdit"
+                    android:layout_margin="8dp"
+                    android:padding="8dp"
+                    android:scrollbars="vertical"
+                    android:textSize="16sp"
+                    android:layout_weight="1"
+                    android:id="@+id/contentText" />
+            
+               </android.widget.ScrollView>
+        </LinearLayout>
+ 
+    </LinearLayout>
+    
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/fab"
+        style="?attr/extendedFloatingActionButtonPrimaryStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/spacing_medium"
+        android:layout_gravity="end|bottom"
+        app:icon="@drawable/ic_edit"
+            
+    />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

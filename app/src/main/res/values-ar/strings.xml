@@ -1,0 +1,53 @@
+<resources>
+
+
+    <!-- Base strings -->
+    <string name="app_name">NoteScribe</string>
+    
+    <!-- Crash Activity -->
+    <string name="okay">حسنا</string>
+    <string name="app_crashed">تعطل التطبيق</string>
+    <string name="close">خروج</string>
+    <string name="close_app">الخروج من التطبيق</string>
+    <string name="copied">النسخ الي الخافظة</string>
+    
+    
+    <!-- This Strings In Settings Activity -->
+    <string name="pref_settings">الاعدادات</string>
+    <string name="pref_appearance">المظهر</string>
+    <string name="pref_dark_theme">الوضع اليلي</string>
+    <string name="pref_about">حول التطبيق</string>
+    <string name="pref_discord">الديسكورد</string> 
+    <string name="pref_discord_desc">انضم الي سيرفرنا علي ديسكور</string>
+    <string name="pref_github">جيت هب</string>
+    <string name="pref_github_desc">يمكنك قرأه المشروع بالكامل علي جيت هب</string>
+    <string name="pref_app_version">الاصدار</string>
+    <string name="pref_follow_system">متابعة النظام</string>
+    <string name="off">ايقاف</string>
+    <string name="on">تشغيل</string>
+    <string name="set_name">اضف اسمك</string>
+    <string name="set_name_des">اضف اسمك الي الصفحة الرئيسية</string>
+    <string name="createMod">وضع انشاء الملاحظة</string>
+    
+    <string name="enable_dynamic">تفعيل الالوان الديناميكية</string>
+    <string name="dynamic_des">الالوان الديناميكة تتفاعل نع نظام 12 فما فوق</string>
+    <string name="home_string">الصفحة الرئيسيه</string>
+    <string name="app_des">سجل جميع لحظاتك اليوميه هنا</string>
+    
+    <!-- Main Activity Strings -->
+    <string name="not_found_text">لا يوجد اي ملاحظات</string>
+    <string name="not_found_des">اضغط علي زر انشاء ملاحظة جديده بالأسفل</string>
+    <string name="create_new">انشاء ملاحظة جديدة</string>
+    <string name="share">المشاركة مع الاصدقاء</string>
+    <string name="open_source_licence">Open source license</string>
+    <string name="navigation_drawer_open">ففتح الدرج</string>
+    <string name="navigation_drawer_close">قفل الدرج</string>
+    
+    <!-- Note Activity -->
+    <string name="new_note">ملاحظة جديدة</string>
+    <string name="title">العنوان</string>
+    <string name="noteEdit">اكتب هنا...</string>
+    
+    
+    
+</resources>

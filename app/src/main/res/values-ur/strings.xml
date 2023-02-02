@@ -1,0 +1,46 @@
+<resources>
+
+
+    <!-- Base strings -->
+    <string name="app_name">NoteScribe</string>
+    
+    <!-- Crash Activity -->
+    <string name="okay">اوکے</string>
+    <string name="app_crashed">ایپ کریش</string>
+    <string name="close">بند</string>
+    <string name="close_app">ایپ کو بند کریں</string>
+    <string name="copied">کلپ بورڈ میں کاپی ہو گیا</string>
+    
+    
+    <!-- This Strings In Settings Activity -->
+    <string name="pref_settings">سیٹنگز</string>
+    <string name="pref_appearance">سٹائل</string>
+    <string name="pref_dark_theme">اندھیرا والا موڈ</string>
+    <string name="pref_about">بارے میں</string>
+    <string name="pref_discord">ہمارا ڈسکورڈ</string> 
+    <string name="pref_discord_desc">ہمارا ڈسکورڈ چینل جوائن کریں </string>
+    <string name="pref_github">ہمارا گٹحب</string>
+    <string name="pref_github_desc">ہماری گٹحب ریپوسئٹری دیکھیے</string>
+    <string name="pref_app_version">ورژن</string>
+    <string name="pref_follow_system">سسٹم کو فالو کریں</string>
+    <string name="off">آف</string>
+    <string name="on">آن</string>
+    
+    <string name="enable_dynamic">ڈائنامک کلر انابل کریں</string>
+    <string name="dynamic_des">Dynamic color Theme api with Android 12 and ++</string>
+    <string name="home_string">گھر</string>
+    <string name="app_des">نوٹ ایپ ہر طرح k نوٹس </string>
+    
+    <!-- Main Activity Strings -->
+    <string name="not_found_text">نوٹس نہیں ملے</string>
+    <string name="not_found_des">نیچے دیے گئے بٹن کو دبا کر نیا نوٹ بنائیں </string>
+    <string name="create_new">نوٹ بنائیں</string>
+    
+    <!-- Note Activity -->
+    <string name="new_note">نیا نوٹ</string>
+    <string name="title">سرخی</string>
+    <string name="noteEdit">نوٹ۔۔۔</string>
+    
+    
+    
+</resources>

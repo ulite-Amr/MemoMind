@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+        
+      
+    <item
+        android:id="@+id/undo"
+        android:contentDescription="Undo Text"
+        android:title="Undo"
+        android:icon="@drawable/ic_undo"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/redo"
+        android:contentDescription="Redo Text"
+        android:title="Redo"
+        android:icon="@drawable/ic_redo"
+        app:showAsAction="always" />
+    
+    <item
+        android:id="@+id/colorOfNote"
+        android:contentDescription="Select Color Of The Note"
+        android:title="Color"
+        android:icon="@drawable/ic_palette"
+        app:showAsAction="always" />
+  
+    <item
+        android:id="@+id/settings"
+        android:name="Settings"
+        android:title="@string/pref_settings"
+        app:contentDescription="Delete Note"
+        app:showAsAction="never" />
+        
+        <item
+        android:id="@+id/copy"
+        android:name="@string/copy"
+        android:title="@string/copy"
+        app:contentDescription="Copy Note Text"
+        app:showAsAction="never" />    
+</menu>

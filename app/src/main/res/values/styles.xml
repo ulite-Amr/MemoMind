@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="PrivateResource">
+
+    <style name="Widget.UliteTeam.Toolbar" parent="Widget.Material3.Toolbar">
+        <item name="contentInsetStartWithNavigation">@dimen/abc_action_bar_content_inset_with_nav</item>
+    </style>
+
+    <style name="Widget.UliteTeam.Button.TextButton.Dialog.FullWidth" parent="Widget.Material3.Button.TextButton.Dialog">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:maxWidth">@null</item>
+    </style>
+
+    <!-- A theme overlay for dialogs with buttons that span the width of the dialog. -->
+    <style name="ThemeOverlay.UliteTeam.MaterialAlertDialog.FullWidthButtons" parent="ThemeOverlay.Material3.MaterialAlertDialog">
+        <item name="materialAlertDialogButtonSpacerVisibility">@integer/mtrl_view_gone</item>
+        <item name="buttonBarPositiveButtonStyle">@style/Widget.UliteTeam.Button.TextButton.Dialog.FullWidth</item>
+        <item name="buttonBarNegativeButtonStyle">@style/Widget.UliteTeam.Button.TextButton.Dialog.FullWidth</item>
+        <item name="buttonBarNeutralButtonStyle">@style/Widget.UliteTeam.Button.TextButton.Dialog.FullWidth</item>
+    </style>
+
+    <style name="PreferenceThemeOverlay.UliteTeam">
+        <item name="preferenceCategoryTitleTextAppearance">?attr/textAppearanceBodyMedium</item>
+        <item name="singleLineTitle">false</item>
+    </style>
+    
+    <style
+            name="UliteTeam.SwitchPreference"
+            parent="Preference.SwitchPreference.Material">
+        <item name="android:widgetLayout">@layout/preference_switch_style</item>
+    </style>
+    
+</resources>

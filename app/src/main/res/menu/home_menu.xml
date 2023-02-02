@@ -1,0 +1,56 @@
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view"
+        
+>
+
+    <group android:checkableBehavior="none">
+        <item
+            android:icon="@drawable/ic_settings"
+            android:id="@+id/nav_settings"
+            android:title="@string/pref_settings"
+            app:contentDescription="@string/pref_settings"
+                
+        />
+
+        <item
+            android:icon="@drawable/ic_archive"
+            android:id="@+id/nav_archive"
+            android:title="Archive"
+            android:contentDescription="Archive"
+                
+        />
+        <item
+            android:icon="@drawable/ic_delete"
+            android:id="@+id/nav_trash"
+            android:title="Trash"
+            android:contentDescription="Trash"
+                
+        />
+
+    </group>
+
+    <group
+        android:checkableBehavior="none"
+        android:id="@+id/others_menu_group"
+        android:title="Athers">
+        <item
+            android:icon="@drawable/ic_share"
+            android:id="@+id/nav_share"
+            android:title="@string/share"
+            app:contentDescription="@string/share"
+                
+        />
+
+        <item
+            android:icon="@drawable/ic_book"
+            android:id="@+id/nav_licence"
+            android:title="@string/open_source_licence"
+            app:contentDescription="@string/open_source_licence"
+                
+        />
+    </group>
+
+</menu>

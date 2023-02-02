@@ -1,0 +1,70 @@
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/_coordinator"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+        
+>
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:liftOnScroll="true"
+            
+    >
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:title="@string/new_note"
+                
+        />
+    </com.google.android.material.appbar.AppBarLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+ 			<LinearLayout
+				android:id="@+id/continar"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:orientation="vertical">
+				<EditText
+					android:id="@+id/noteTitle"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_margin="8dp"
+					android:padding="8dp"
+					android:background="@android:color/transparent"
+					android:textSize="20sp"
+					android:textStyle="bold"
+					android:hint="@string/title"
+					android:singleLine="true"
+					android:imeOptions="actionNext" />
+				<EditText
+					android:id="@+id/noteContent"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:layout_margin="8dp"
+					android:padding="8dp"
+					android:background="@android:color/transparent"
+					android:gravity="start|top"
+					android:textSize="16sp"
+                    android:scrollbars="vertical"
+					android:hint="@string/noteEdit" />
+			</LinearLayout>
+            
+       </LinearLayout>     
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/fab"
+        style="?attr/extendedFloatingActionButtonPrimaryStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/spacing_medium"
+        android:layout_gravity="end|bottom"
+        app:icon="@drawable/ic_save"
+    />
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

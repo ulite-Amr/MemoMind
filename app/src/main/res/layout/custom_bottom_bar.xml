@@ -1,0 +1,40 @@
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="48dp"
+    android:background="?colorSurface">
+
+    <ImageButton
+        android:src="@drawable/dots_vertical"
+        android:layout_margin="5dp"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        style="@style/ToolbarButtonStyle"
+        android:id="@+id/colors"
+            />
+
+
+    <ImageButton
+        android:src="@drawable/dots_vertical"
+        android:layout_margin="5dp"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        style="@style/ToolbarButtonStyle"
+        android:id="@+id/more_options"
+            />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:text="Date Text"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+            
+    />
+
+
+</RelativeLayout>

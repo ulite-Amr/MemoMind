@@ -1,0 +1,30 @@
+<resources
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:ignore="UnusedResources">
+
+    <!-- Colors Of Notes -->
+    <color name="color1">#77172E</color>
+    <color name="color2">#692B17</color>
+    <color name="color3">#7C4A03</color>
+    <color name="color4">#264D3B</color>
+    <color name="color5">#0C625D</color>
+    <color name="color6">#256377</color>
+    <color name="color7">#284255</color>
+    <color name="color8">#472E5B</color>
+    <color name="color9">#6C394F</color>
+    <color name="color10">#1E1B17</color>
+    
+    <!-- Secend Color Of Notes -->
+    
+    <color name="secend1">#FFD68296</color>
+    <color name="secend2">#FFB34F2F</color>
+    <color name="secend3">#FFAD593E</color>
+    <color name="secend4">#FF569F7D</color>
+    <color name="secend5">#FF209D96</color>
+    <color name="secend6">#FF28AFDB</color>
+    <color name="secend7">#FF4479A1</color>
+    <color name="secend8">#FF7845A1</color>
+    <color name="secend9">#FFAD4A75</color>
+    <color name="secend10">#FF6B4C22</color>
+    
+</resources>
