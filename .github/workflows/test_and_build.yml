@@ -4,7 +4,13 @@ on:
   push:
     branches: [ "main" ]
     paths-ignore:
+<<<<<<< HEAD
       -  **.md 
+=======
+      
+      -  .github/** 
+      -  .idea/**
+>>>>>>> 7bb056343ebd53ecc6bd5f3182b99702d9954dab
   pull_request:
     branches: [ "main" ]
     paths-ignore:
