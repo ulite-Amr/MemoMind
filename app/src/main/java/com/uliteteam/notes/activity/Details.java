@@ -59,7 +59,7 @@ public class Details extends BaseActivity {
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     binding = ActivityDetailsBinding.inflate(getLayoutInflater());
-    LogSender.startLogging(this);
+//    LogSender.startLogging(this);
     setContentView(binding.getRoot());
     setSupportActionBar(binding.toolbar);
     Intent i = getIntent();

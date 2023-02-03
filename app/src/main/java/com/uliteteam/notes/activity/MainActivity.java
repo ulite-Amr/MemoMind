@@ -40,7 +40,7 @@ public class MainActivity extends BaseActivity {
   List<Note> notes = new ArrayList<>();
 
   protected void onCreate(Bundle savedInstanceState) {
-    LogSender.startLogging(this);
+//    LogSender.startLogging(this);
     super.onCreate(savedInstanceState);
 
     binding = ActivityMainBinding.inflate(getLayoutInflater());
