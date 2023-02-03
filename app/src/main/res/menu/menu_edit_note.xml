@@ -22,7 +22,7 @@
         android:id="@+id/colorOfNote"
         android:contentDescription="Select Color Of The Note"
         android:title="Color"
-        android:icon="@drawable/ic_palette"
+        android:icon="@drawable/widgets"
         app:showAsAction="always"/>
 
     <item
