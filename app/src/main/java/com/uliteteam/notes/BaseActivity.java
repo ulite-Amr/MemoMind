@@ -7,7 +7,7 @@ import androidx.preference.PreferenceManager;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import com.itsaky.androidide.logsender.LogSender;
+//import com.itsaky.androidide.logsender.LogSender;
 // import com.itsaky.androidide.logsender.LogSender;
 
 public class BaseActivity extends AppCompatActivity {

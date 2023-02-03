@@ -24,7 +24,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.view.menu.MenuBuilder;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
-import com.itsaky.androidide.logsender.LogSender;
+//import com.itsaky.androidide.logsender.LogSender;
 import com.uliteteam.notes.BaseActivity;
 import com.uliteteam.notes.Note;
 import com.uliteteam.notes.R;

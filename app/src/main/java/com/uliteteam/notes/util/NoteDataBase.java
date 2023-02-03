@@ -12,7 +12,7 @@ import com.uliteteam.notes.Note;
 import com.uliteteam.notes.util.NoteDataBase;
 import java.util.ArrayList;
 import java.util.List;
-import com.itsaky.androidide.logsender.LogSender;
+//import com.itsaky.androidide.logsender.LogSender;
 
 public class NoteDataBase extends SQLiteOpenHelper {
     

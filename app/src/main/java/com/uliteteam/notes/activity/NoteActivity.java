@@ -15,7 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.view.menu.MenuBuilder;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.elevation.SurfaceColors;
-import com.itsaky.androidide.logsender.LogSender;
+////import com.itsaky.androidide.logsender.LogSender;
 import com.uliteteam.notes.BaseActivity;
 import com.uliteteam.notes.Note;
 import com.uliteteam.notes.databinding.ActivityNoteBinding;
