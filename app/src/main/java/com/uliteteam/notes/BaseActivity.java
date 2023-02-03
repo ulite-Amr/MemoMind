@@ -17,7 +17,7 @@ public class BaseActivity extends AppCompatActivity {
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     // LogSender.startLogging(this);
-    LogSender.startLogging(this);
+//    LogSender.startLogging(this);
     // inside onCreate method
     SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
     boolean isDynamic = preferences.getBoolean("dymanic_color", false);
