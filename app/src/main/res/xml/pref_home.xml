@@ -6,7 +6,7 @@
         <EditTextPreference
             app:key="@string/key_name_home"
             app:title="@string/set_name"
-            app:summary="@string/set_name_des"
+            app:useSimpleSummaryProvider="true"
                 
         />
 
@@ -14,7 +14,7 @@
             app:key="@string/key_row_style"
             app:title="@string/RowStyle"
             app:useSimpleSummaryProvider="true"
-            app:defaultValue="google"
+            app:defaultValue="defult"
             app:entries="@array/rows_style"
             app:entryValues="@array/row_style_values"
                 
