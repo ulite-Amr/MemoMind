@@ -6,14 +6,12 @@ on:
     
   pull_request:
     branches: [ "main" ]
-    paths-ignore:
     
   workflow_dispatch:
 
 jobs:
   build:
     name: Generatee Debug APK
-    needs: [ unit_tests ]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
