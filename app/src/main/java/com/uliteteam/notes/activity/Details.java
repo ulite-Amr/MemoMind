@@ -7,6 +7,7 @@ import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.graphics.Color;
 import android.icu.util.Calendar;
 import android.os.Bundle;
 import android.os.Handler;
@@ -20,6 +21,7 @@ import android.view.Window;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.view.menu.MenuBuilder;
@@ -232,8 +234,12 @@ public class Details extends BaseActivity {
                 getResources().getIdentifier("color" + (i + 1), "id", getPackageName()));
         // Initializing the viewColors array and finding the View with the corresponding ID in the
         // layout file
+                
       }
-
+      LinearLayout menuImage = bottomSheetView.findViewById(R.id.menuImage);
+            
+       menuImage.setClickable(true);
+            
       for (int i = 0; i < imageColors.length; i++) {
         imageColors[i].setImageResource(
             i == Integer.parseInt(selectedNoteColor) ? R.drawable.done_circle : 0);
@@ -262,6 +268,16 @@ public class Details extends BaseActivity {
     } else return false;
   }
 
+  private void clickAnimation(View v,String color) {
+    // TODO: Implement this method
+
+    android.content.res.ColorStateList clrb =
+        new android.content.res.ColorStateList(
+            new int[][] {new int[] {}}, new int[] {Color.parseColor(color)});
+    android.graphics.drawable.RippleDrawable ripdrb =
+        new android.graphics.drawable.RippleDrawable(clrb, null, null);
+    v.setBackground(ripdrb);
+  }
 
   // Enabled(False),Enabled(True) to switch Preview Mod To Edit Mod loop
   public void EditorPreview(boolean Edit) {
