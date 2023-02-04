@@ -1,16 +1,6 @@
 # NoteScribe
 
 
-<div align="center">
-
-
-![Downloads](https://img.shields.io/github/downloads/ulite-Amr/NoteScribe/total?style=for-the-badge)
-![GitHub repo size](https://img.shields.io/github/repo-size/ulite-Amr/NoteScribe?style=for-the-badge)
-![Test and Build](https://img.shields.io/github/actions/workflow/status/ulite-Amr/NoteScribe/test_and_build.yml?label=Test%20and%20Build&style=for-the-badge&logo=github)
-[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg?style=for-the-badge)](https://github.com/ulite-Amr/NoteScribe/blob/main/CODE_OF_CONDUCT.md)
-[![LICENSE](https://img.shields.io/github/license/ulite-Amr/NoteScribe?color=blue&style=for-the-badge)](https://github.com/ulite-Amr/NoteScribe/blob/main/LICENSE)
-</div>
-
 NoteScribe is a versatile note-taking app designed for effective organization and information management. With its user-friendly interface, users can create notebooks, add text, images and other media to their notes. Notes can be easily categorized and searched for quick reference. Perfect for both personal and professional use, NoteScribe helps keep your thoughts and ideas organized. Get started today and simplify your note-taking process.
 
 ### Features
