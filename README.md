@@ -4,19 +4,15 @@
 NoteScribe is a versatile note-taking app designed for effective organization and information management. With its user-friendly interface, users can create notebooks, add text, images and other media to their notes. Notes can be easily categorized and searched for quick reference. Perfect for both personal and professional use, NoteScribe helps keep your thoughts and ideas organized. Get started today and simplify your note-taking process.
 
 ### Features
-- 
-- 
-- 
-- 
-- 
-- 
-- 
-- 
+- beast ui
+- Create note with more options
+- Add you custom Ui home,note
+- Copy-Share
 
 ### TODO
 - [ ] Can you Added Images in note 
-       [X] Added design for New Feuture
-       [ ] Added table in SQLite Database
+    - [X] Added design for New Feuture
+    - [ ] Added table in SQLite Database
 - [ ] Added Search Notes
 - [ ] Added Grid style switch
 
