@@ -9,9 +9,12 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Color;
 import android.icu.util.Calendar;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.os.ext.SdkExtensions;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.Menu;
@@ -23,6 +26,9 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.PickVisualMediaRequest;
+import androidx.activity.result.contract.ActivityResultContracts.PickVisualMedia;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.view.menu.MenuBuilder;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
@@ -34,9 +40,8 @@ import com.uliteteam.notes.databinding.ActivityDetailsBinding;
 import com.uliteteam.notes.maneger.ColorOfNote;
 import com.uliteteam.notes.maneger.TextViewUndoRedo;
 import com.uliteteam.notes.util.NoteDataBase;
+import com.uliteteam.notes.utile.FilePicker;
 import java.security.PublicKey;
-
-
 
 public class Details extends BaseActivity {
 
@@ -56,6 +61,8 @@ public class Details extends BaseActivity {
 
   String todeysDate = Calendar.getInstance().getTime().toString();
   final Runnable updateMenuIconsState = () -> undoRedo.updateButtons();
+    private FilePicker filepicker;
+    private ActivityResultLauncher<PickVisualMediaRequest> pickMedia;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +76,32 @@ public class Details extends BaseActivity {
     db = new NoteDataBase(this);
     note = db.getNote(id);
       
+            filepicker =
+        new FilePicker(this) {
+
+          @Override
+          public void onRequestPermission(boolean isGranted) {
+            
+              
+          }
+
+          @Override
+          public void onPickFile(Uri uri) {
+  
+                return;
+              
+            }
+                                 
+        };
+    pickMedia =
+        registerForActivityResult(
+            new PickVisualMedia(),
+            uri -> {
+              // Callback is invoked after the user selects a media item or closes the
+              // photo picker.
+
+            });
+        
  
     selectedNoteColor = note.getColor();
         
@@ -240,6 +273,10 @@ public class Details extends BaseActivity {
             
        menuImage.setClickable(true);
             
+            menuImage.setOnClickListener(v ->{
+                launchPhotoPicker();
+            });
+            
       for (int i = 0; i < imageColors.length; i++) {
         imageColors[i].setImageResource(
             i == Integer.parseInt(selectedNoteColor) ? R.drawable.done_circle : 0);
@@ -262,6 +299,9 @@ public class Details extends BaseActivity {
         
         
       }
+     
+            
+            
       bottomSheetColors.show();      
 
       return true;
@@ -377,7 +417,26 @@ public class Details extends BaseActivity {
       binding.Coordinator.setBackgroundColor(this.getColor(selectedColorId));
       w.setStatusBarColor(this.getColor(selectedColorId));
       w.setNavigationBarColor(this.getColor(selectedColorId));
-            binding.appBar.setBackgroundColor(this.getColor(selectedColorId));
+      binding.appBar.setBackgroundColor(this.getColor(selectedColorId));
+    }
+  }
+
+  private boolean isPhotoPickerAvailable() {
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) return true;
+    else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R)
+      return SdkExtensions.getExtensionVersion(Build.VERSION_CODES.R) >= 2;
+    else return false;
+  }
+
+  public void launchPhotoPicker() {
+    if (isPhotoPickerAvailable()) {
+      // Launch the photo picker and allow the user to choose only images.
+      pickMedia.launch(
+          new PickVisualMediaRequest.Builder()
+              .setMediaType(PickVisualMedia.ImageOnly.INSTANCE)
+              .build());
+    } else {
+      filepicker.launch("image/*");
     }
   }
 }
