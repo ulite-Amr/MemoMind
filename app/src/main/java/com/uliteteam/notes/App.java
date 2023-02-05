@@ -12,6 +12,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatDelegate;
 import com.google.android.material.color.DynamicColors;
 import com.uliteteam.notes.App;
+import com.uliteteam.notes.util.CrashHandler;
 
 public class App extends Application {
 

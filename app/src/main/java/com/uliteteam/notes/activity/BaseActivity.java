@@ -5,8 +5,10 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import androidx.preference.PreferenceManager;
 import android.widget.Toast;
-
+import com.uliteteam.notes.R;
 import androidx.appcompat.app.AppCompatActivity;
+import com.uliteteam.notes.App;
+import com.uliteteam.notes.util.CrashHandler;
 //import com.itsaky.androidide.logsender.LogSender;
 // import com.itsaky.androidide.logsender.LogSender;
 
