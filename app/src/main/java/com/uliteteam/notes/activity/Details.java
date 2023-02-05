@@ -275,6 +275,7 @@ public class Details extends BaseActivity {
             
             menuImage.setOnClickListener(v ->{
                 launchPhotoPicker();
+                    bottomSheetColors.cancel();
             });
             
       for (int i = 0; i < imageColors.length; i++) {
