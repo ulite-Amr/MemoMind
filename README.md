@@ -10,11 +10,19 @@ NoteScribe is a versatile note-taking app designed for effective organization an
 - Copy-Share
 
 ### TODO
-- [ ] Can you Added Images in note 
-    - [X] Added design for New Feuture
-    - [ ] Added table in SQLite Database
+
+
 - [ ] Added Search Notes
 - [ ] Added Grid style switch
+- [ ] Tag notes for easy retrieval
+- [ ] Attach images, audio, and video to notes
+    - [X] Can added image
+    - [ ] Can Add Video
+    - [ ] Can add audio
+- [ ] Added trash Activity
+- [ ] Added Archive Activity
+- [ ] Themes options
+- [ ] Backup & Restore
 
 
 ### Lisence
