@@ -34,7 +34,7 @@ import androidx.appcompat.view.menu.MenuBuilder;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 //import com.itsaky.androidide.logsender.LogSender;
 import com.uliteteam.notes.BaseActivity;
-import com.uliteteam.notes.Note;
+import com.uliteteam.notes.utile.Note;
 import com.uliteteam.notes.R;
 import com.uliteteam.notes.databinding.ActivityDetailsBinding;
 import com.uliteteam.notes.maneger.ColorOfNote;

@@ -1,4 +1,4 @@
-package com.uliteteam.notes;
+package com.uliteteam.notes.model;
 
 public class Note {
     private long ID;

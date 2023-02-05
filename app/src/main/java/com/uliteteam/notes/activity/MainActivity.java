@@ -15,7 +15,7 @@ import com.google.android.gms.oss.licenses.OssLicensesMenuActivity;
 import com.google.android.material.navigation.NavigationView;
 //import com.itsaky.androidide.logsender.LogSender;
 import com.uliteteam.notes.BaseActivity;
-import com.uliteteam.notes.Note;
+import com.uliteteam.notes.utile.Note;
 import com.uliteteam.notes.R;
 import com.uliteteam.notes.activity.MainActivity;
 import com.uliteteam.notes.adapter.NotesAdapter;
