@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 import android.view.AbsSavedState;
 import android.widget.Toast;
-import com.uliteteam.notes.model.Note;
+import com.uliteteam.notes.utile.Note;
 import com.uliteteam.notes.util.NoteDataBase;
 import java.util.ArrayList;
 import java.util.List;

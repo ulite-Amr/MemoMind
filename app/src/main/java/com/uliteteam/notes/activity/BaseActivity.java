@@ -1,4 +1,4 @@
-package com.uliteteam.notes;
+package com.uliteteam.notes.activity;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;

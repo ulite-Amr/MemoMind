@@ -8,7 +8,7 @@ import androidx.preference.PreferenceFragmentCompat
 import com.uliteteam.notes.R
 import com.uliteteam.notes.databinding.ActivitySettingsBinding
 import com.uliteteam.notes.fragment.settings.RootSettingsFragment
-import com.uliteteam.notes.BaseActivity
+import com.uliteteam.notes.activity.BaseActivity
 
 class SettingsActivity :
     BaseActivity(),

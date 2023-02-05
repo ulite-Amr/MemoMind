@@ -1,4 +1,4 @@
-package com.uliteteam.notes;
+package com.uliteteam.notes.util;
 
 import android.content.Context;
 import android.content.Intent;

@@ -16,7 +16,7 @@ import androidx.vectordrawable.graphics.drawable.AnimationUtilsCompat;
 import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.transition.MaterialContainerTransform;
-import com.uliteteam.notes.utile.Note;
+import com.uliteteam.notes.model.Note;
 import com.uliteteam.notes.activity.Details;
 import com.uliteteam.notes.activity.MainActivity;
 import com.uliteteam.notes.adapter.NotesAdapter;

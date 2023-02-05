@@ -9,7 +9,7 @@ import androidx.appcompat.content.res.AppCompatResources;
 import com.blankj.utilcode.util.ClipboardUtils;
 import com.blankj.utilcode.util.DeviceUtils;
 import com.google.android.material.snackbar.Snackbar;
-import com.uliteteam.notes.BaseActivity;
+import com.uliteteam.notes.activity.BaseActivity;
 import com.uliteteam.notes.BuildConfig;
 import com.uliteteam.notes.R;
 import com.uliteteam.notes.databinding.ActivityCrashBinding;
