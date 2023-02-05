@@ -177,7 +177,7 @@ public class MainActivity extends BaseActivity {
     binding.notesRecycler.setAdapter(adapter);
 
     Collections.reverse(notes);
-  
+  }
 
   public void notFoundFound() {
     if (notes.size() > 0) {
@@ -188,5 +188,4 @@ public class MainActivity extends BaseActivity {
       binding.emptyContainer.setVisibility(View.VISIBLE);
     }
   }
- }       
 }
