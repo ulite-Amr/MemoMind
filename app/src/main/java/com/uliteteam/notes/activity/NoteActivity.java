@@ -17,6 +17,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.elevation.SurfaceColors;
 ////import com.itsaky.androidide.logsender.LogSender;
 import com.uliteteam.notes.activity.BaseActivity;
+import com.uliteteam.notes.callback.BottomSheetColorsCallBack;
 import com.uliteteam.notes.model.Note;
 import com.uliteteam.notes.databinding.ActivityNoteBinding;
 import android.view.MenuItem;
@@ -24,6 +25,7 @@ import android.view.Menu;
 import com.uliteteam.notes.R;
 import android.content.Intent;
 import com.uliteteam.notes.maneger.TextViewUndoRedo;
+import com.uliteteam.notes.ui.dialog.BottomSheetCatalog;
 import com.uliteteam.notes.util.NoteDataBase;
 
 public class NoteActivity extends BaseActivity {
@@ -147,58 +149,14 @@ public class NoteActivity extends BaseActivity {
     } else if (id == R.id.copy) {
 
       return true;
-    }else if(id == R.id.colorOfNote){
-            
-                  final BottomSheetDialog bottomSheetColors =
-          new BottomSheetDialog(NoteActivity.this, R.style.ModalBottomSheetDialog);
-      // Creating a new instance of the BottomSheetDialog with the context of the Details activity
-      // and the specified style
+    } else if (id == R.id.colorOfNote) {
 
-      View bottomSheetView = getLayoutInflater().inflate(R.layout.color_pick_note, null);
-      // Inflating the color_pick_note layout file and assigning it to the bottomSheetView variable
+      BottomSheetCatalog catalog =
+          new BottomSheetCatalog(
+              this,
+                selectedNoteColor);
 
-      bottomSheetColors.setContentView(bottomSheetView);
-      // Setting the content view of the BottomSheetDialog to be the bottomSheetView
-
-      // Initialize views
-      final ImageView[] imageColors = new ImageView[11];
-      final View[] viewColors = new View[11];
-      for (int i = 0; i < 11; i++) {
-        imageColors[i] =
-            bottomSheetView.findViewById(
-                getResources().getIdentifier("imageColor" + (i + 1), "id", getPackageName()));
-        // Initializing the imageColors array and finding the ImageView with the corresponding ID in
-        // the layout file
-        viewColors[i] =
-            bottomSheetView.findViewById(
-                getResources().getIdentifier("color" + (i + 1), "id", getPackageName()));
-        // Initializing the viewColors array and finding the View with the corresponding ID in the
-        // layout file
-      }
-
-      for (int i = 0; i < imageColors.length; i++) {
-        imageColors[i].setImageResource(
-            i == Integer.parseInt(selectedNoteColor) ? R.drawable.done_circle : 0);
-      }
-
-      for (int i = 0; i < 11; i++) {
-        final int finalI = i;
-        viewColors[i].setOnClickListener(
-            v -> {
-              selectedNoteColor = String.valueOf(finalI);
-              // Setting the value of the selectedNoteColor variable to the color that was clicked
-              for (int j = 0; j < 11; j++) {
-                imageColors[j].setImageResource(j == finalI ? R.drawable.done_circle : 0);
-                // Setting the image resource of the imageColors array to the done_circle drawable
-                // if the color was selected and setting it to 0 otherwise
-              }
-            });
-        
-        
-      }
-      bottomSheetColors.show();
-            
-        return true;
+      return true;
     } else return false;
   }
 
