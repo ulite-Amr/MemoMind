@@ -15,6 +15,7 @@
     
     <!-- This Strings In Settings Activity -->
     <string name="pref_settings">Settings</string>
+    <string name="pref_general">General</string>
     <string name="pref_appearance">Appearance</string>
     <string name="pref_dark_theme">Dark Theme</string>
     <string name="pref_about">About</string>

@@ -2,6 +2,11 @@
 <PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <PreferenceScreen
+            app:fragment="com.uliteteam.notes.fragment.settings.GeneralSettingsFragment"
+            app:key="@string/pref_general"
+            app:title="@string/pref_general" />
+    
+    <PreferenceScreen
             app:fragment="com.uliteteam.notes.fragment.settings.AppearanceSettingsFragment"
             app:key="appearance"
             app:title="@string/appearance" />
