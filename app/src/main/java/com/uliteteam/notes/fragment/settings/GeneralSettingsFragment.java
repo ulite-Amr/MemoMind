@@ -18,7 +18,5 @@ public class GeneralSettingsFragment extends BasePreferenceFragment {
   public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
     setPreferencesFromResource(R.xml.pref_general, rootKey);
         
-    setEnterTransition(new MaterialSharedAxis(MaterialSharedAxis.X, false));
-    setExitTransition(new MaterialSharedAxis(MaterialSharedAxis.X, true));
   }
 }

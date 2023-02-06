@@ -15,13 +15,6 @@ import androidx.preference.PreferenceManager;
 public class AppearanceSettingsFragment extends BasePreferenceFragment
     implements SharedPreferences.OnSharedPreferenceChangeListener {
 
-        @Override
-    public void onCreate( Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        setEnterTransition(new MaterialSharedAxis(MaterialSharedAxis.X, false));
-        setExitTransition(new MaterialSharedAxis(MaterialSharedAxis.X, true));
-    }
     
   public AppearanceSettingsFragment() {
     super(R.string.pref_appearance);

@@ -18,7 +18,5 @@ public class HomeSettingsFragment extends BasePreferenceFragment {
   public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
     setPreferencesFromResource(R.xml.pref_home, rootKey);
         
-    setEnterTransition(new MaterialSharedAxis(MaterialSharedAxis.X, false));
-    setExitTransition(new MaterialSharedAxis(MaterialSharedAxis.X, true));
   }
 }

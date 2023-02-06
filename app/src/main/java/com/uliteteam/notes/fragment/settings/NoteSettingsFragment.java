@@ -18,7 +18,5 @@ public class NoteSettingsFragment extends BasePreferenceFragment {
   public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
     setPreferencesFromResource(R.xml.pref_note, rootKey);
         
-    setEnterTransition(new MaterialSharedAxis(MaterialSharedAxis.X, false));
-    setExitTransition(new MaterialSharedAxis(MaterialSharedAxis.X, true));
   }
 }
