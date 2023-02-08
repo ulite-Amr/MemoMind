@@ -39,6 +39,7 @@ import com.uliteteam.notes.R;
 import com.uliteteam.notes.databinding.ActivityDetailsBinding;
 import com.uliteteam.notes.maneger.ColorOfNote;
 import com.uliteteam.notes.maneger.TextViewUndoRedo;
+import com.uliteteam.notes.ui.dialog.BottomSheetCatalog;
 import com.uliteteam.notes.util.NoteDataBase;
 import com.uliteteam.notes.utile.FilePicker;
 import java.security.PublicKey;
@@ -73,8 +74,10 @@ public class Details extends BaseActivity {
     setSupportActionBar(binding.toolbar);
     Intent i = getIntent();
     long id = i.getLongExtra("ID", 0);
+ 
     db = new NoteDataBase(this);
     note = db.getNote(id);
+        
       
             filepicker =
         new FilePicker(this) {
@@ -105,8 +108,8 @@ public class Details extends BaseActivity {
  
     selectedNoteColor = note.getColor();
         
-        statusColors();
-  
+        if(selectedNoteColor != null) binding.Coordinator.setBackgroundColor(R.color.color2);
+        
       binding.noteTitle.setTransitionName("TITLE");  
         
     EditorPreview(false);
@@ -242,69 +245,12 @@ public class Details extends BaseActivity {
 
     } else if (id == R.id.colorOfNote) {
 
-      final BottomSheetDialog bottomSheetColors =
-          new BottomSheetDialog(Details.this, R.style.ModalBottomSheetDialog);
-      // Creating a new instance of the BottomSheetDialog with the context of the Details activity
-      // and the specified style
-
-      View bottomSheetView = getLayoutInflater().inflate(R.layout.color_pick_note, null);
-      // Inflating the color_pick_note layout file and assigning it to the bottomSheetView variable
-
-      bottomSheetColors.setContentView(bottomSheetView);
-      // Setting the content view of the BottomSheetDialog to be the bottomSheetView
-
-      // Initialize views
-      final ImageView[] imageColors = new ImageView[11];
-      final View[] viewColors = new View[11];
-      for (int i = 0; i < 11; i++) {
-        imageColors[i] =
-            bottomSheetView.findViewById(
-                getResources().getIdentifier("imageColor" + (i + 1), "id", getPackageName()));
-        // Initializing the imageColors array and finding the ImageView with the corresponding ID in
-        // the layout file
-        viewColors[i] =
-            bottomSheetView.findViewById(
-                getResources().getIdentifier("color" + (i + 1), "id", getPackageName()));
-        // Initializing the viewColors array and finding the View with the corresponding ID in the
-        // layout file
-                
-      }
-      LinearLayout menuImage = bottomSheetView.findViewById(R.id.menuImage);
-            
-       menuImage.setClickable(true);
-            
-            menuImage.setOnClickListener(v ->{
-                launchPhotoPicker();
-                    bottomSheetColors.cancel();
-            });
-            
-      for (int i = 0; i < imageColors.length; i++) {
-        imageColors[i].setImageResource(
-            i == Integer.parseInt(selectedNoteColor) ? R.drawable.done_circle : 0);
-      }
-
-      for (int i = 0; i < 11; i++) {
-        final int finalI = i;
-        viewColors[i].setOnClickListener(
-            v -> {
-              selectedNoteColor = String.valueOf(finalI);
-              // Setting the value of the selectedNoteColor variable to the color that was clicked
-              for (int j = 0; j < 11; j++) {
-                imageColors[j].setImageResource(j == finalI ? R.drawable.done_circle : 0);
-                    
-                    statusColors();        
-                // Setting the image resource of the imageColors array to the done_circle drawable
-                // if the color was selected and setting it to 0 otherwise
-              }
-            });
-        
-        
-      }
-     
-            
-            
-      bottomSheetColors.show();      
-
+           BottomSheetCatalog bottomSheet = new BottomSheetCatalog(Details.this,R.style.ModalBottomSheetDialog );
+            bottomSheet.setBackgroung(binding.Coordinator);
+            bottomSheet.setAppbar(binding.appBar);
+            bottomSheet.setSelectedNoteColor(selectedNoteColor);
+            bottomSheet.show();
+      
       return true;
     } else return false;
   }
@@ -396,48 +342,5 @@ public class Details extends BaseActivity {
     binding.noteTitleText.setText(binding.noteTitle.getText().toString());
   }
 
-  public void statusColors() {
-        
-         w = this.getWindow();
 
-    int[] colorIds = {
-      0,
-      R.color.color1,
-      R.color.color2,
-      R.color.color3,
-      R.color.color4,
-      R.color.color5,
-      R.color.color6,
-      R.color.color7,
-      R.color.color8,
-      R.color.color9,
-      R.color.color10
-    };
-    if (Integer.parseInt(selectedNoteColor) > 0) {
-      int selectedColorId = colorIds[Integer.parseInt(selectedNoteColor)];
-      binding.Coordinator.setBackgroundColor(this.getColor(selectedColorId));
-      w.setStatusBarColor(this.getColor(selectedColorId));
-      w.setNavigationBarColor(this.getColor(selectedColorId));
-      binding.appBar.setBackgroundColor(this.getColor(selectedColorId));
-    }
-  }
-
-  private boolean isPhotoPickerAvailable() {
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) return true;
-    else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R)
-      return SdkExtensions.getExtensionVersion(Build.VERSION_CODES.R) >= 2;
-    else return false;
-  }
-
-  public void launchPhotoPicker() {
-    if (isPhotoPickerAvailable()) {
-      // Launch the photo picker and allow the user to choose only images.
-      pickMedia.launch(
-          new PickVisualMediaRequest.Builder()
-              .setMediaType(PickVisualMedia.ImageOnly.INSTANCE)
-              .build());
-    } else {
-      filepicker.launch("image/*");
-    }
-  }
 }

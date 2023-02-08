@@ -151,10 +151,11 @@ public class NoteActivity extends BaseActivity {
       return true;
     } else if (id == R.id.colorOfNote) {
 
-      BottomSheetCatalog catalog =
-          new BottomSheetCatalog(
-              this,
-                selectedNoteColor);
+      BottomSheetCatalog bottomSheet = new BottomSheetCatalog(NoteActivity.this,R.style.ModalBottomSheetDialog);
+            bottomSheet.setBackgroung(binding.Coordinator);
+            bottomSheet.setAppbar(binding.appBar);
+            bottomSheet.setSelectedNoteColor(selectedNoteColor);
+            bottomSheet.show();
 
       return true;
     } else return false;
