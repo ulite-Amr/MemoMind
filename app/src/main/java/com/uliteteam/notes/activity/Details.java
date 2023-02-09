@@ -55,16 +55,17 @@ public class Details extends BaseActivity {
   boolean Editable = false;
   ColorOfNote colorOfNote;
   NoteDataBase db;
-  Note note;
+  public  Note note;
   String selectedNoteColor;
   Window w = this.getWindow();
-    
+   String colorId; 
 
   String todeysDate = Calendar.getInstance().getTime().toString();
   final Runnable updateMenuIconsState = () -> undoRedo.updateButtons();
     private FilePicker filepicker;
     private ActivityResultLauncher<PickVisualMediaRequest> pickMedia;
-
+    
+    
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -72,12 +73,14 @@ public class Details extends BaseActivity {
 //    LogSender.startLogging(this);
     setContentView(binding.getRoot());
     setSupportActionBar(binding.toolbar);
+    
+ 
     Intent i = getIntent();
     long id = i.getLongExtra("ID", 0);
- 
+        
     db = new NoteDataBase(this);
     note = db.getNote(id);
-        
+      colorId = note.getColor();
       
             filepicker =
         new FilePicker(this) {
@@ -137,7 +140,7 @@ public class Details extends BaseActivity {
           }
         });
 
-    
+    Toast.makeText(this,selectedNoteColor,Toast.LENGTH_SHORT).show();
     binding.content.addTextChangedListener(
         new TextWatcher() {
 
@@ -181,7 +184,9 @@ public class Details extends BaseActivity {
     colorOfNote = new ColorOfNote(colors, Editable);
     updateUndoRedoBtnState();
     this.colors.setEnabled(false);
+        colorId = note.getColor();
     return super.onCreateOptionsMenu(menu);
+        
   }
 
   // Update Undo/Redo Maneger
@@ -195,6 +200,7 @@ public class Details extends BaseActivity {
   public boolean onOptionsItemSelected(MenuItem item) {
 
     var id = item.getItemId();
+        colorId = note.getColor();
 
     if (undoRedo != null) {
       undoRedo.updateButtons();
@@ -244,17 +250,16 @@ public class Details extends BaseActivity {
       return true;
 
     } else if (id == R.id.colorOfNote) {
-
            BottomSheetCatalog bottomSheet = new BottomSheetCatalog(Details.this,R.style.ModalBottomSheetDialog );
-            bottomSheet.setBackgroung(binding.Coordinator);
-            bottomSheet.setAppbar(binding.appBar);
-            bottomSheet.setSelectedNoteColor(selectedNoteColor);
+            bottomSheet.setSelectedNoteColor(colorId);
             bottomSheet.show();
       
       return true;
     } else return false;
   }
-
+    
+    
+    
   private void clickAnimation(View v,String color) {
     // TODO: Implement this method
 

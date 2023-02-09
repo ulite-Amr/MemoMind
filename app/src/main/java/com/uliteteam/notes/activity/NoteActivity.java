@@ -152,8 +152,6 @@ public class NoteActivity extends BaseActivity {
     } else if (id == R.id.colorOfNote) {
 
       BottomSheetCatalog bottomSheet = new BottomSheetCatalog(NoteActivity.this,R.style.ModalBottomSheetDialog);
-            bottomSheet.setBackgroung(binding.Coordinator);
-            bottomSheet.setAppbar(binding.appBar);
             bottomSheet.setSelectedNoteColor(selectedNoteColor);
             bottomSheet.show();
 
