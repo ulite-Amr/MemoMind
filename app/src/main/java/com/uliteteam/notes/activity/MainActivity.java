@@ -1,6 +1,5 @@
 package com.uliteteam.notes.activity;
 
-import android.app.ActivityOptions;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.*;
@@ -13,11 +12,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.gms.oss.licenses.OssLicensesMenuActivity;
 import com.google.android.material.navigation.NavigationView;
-//import com.itsaky.androidide.logsender.LogSender;
-import com.uliteteam.notes.activity.BaseActivity;
+// import com.itsaky.androidide.logsender.LogSender;
 import com.uliteteam.notes.model.Note;
 import com.uliteteam.notes.R;
-import com.uliteteam.notes.activity.MainActivity;
 import com.uliteteam.notes.adapter.NotesAdapter;
 import com.uliteteam.notes.databinding.ActivityMainBinding;
 import androidx.core.app.ShareCompat;
@@ -40,7 +37,7 @@ public class MainActivity extends BaseActivity {
   List<Note> notes = new ArrayList<>();
 
   protected void onCreate(Bundle savedInstanceState) {
-//    LogSender.startLogging(this);
+    //    LogSender.startLogging(this);
     super.onCreate(savedInstanceState);
 
     binding = ActivityMainBinding.inflate(getLayoutInflater());
@@ -65,7 +62,7 @@ public class MainActivity extends BaseActivity {
 
     NoteDataBase db = new NoteDataBase(this);
     notes = db.getNote();
-        MainActivity mainActivity = this;
+    MainActivity mainActivity = this;
     adapter = new NotesAdapter(notes);
     binding.notesRecycler.setLayoutManager(
         new LinearLayoutManager(this, RecyclerView.VERTICAL, false));

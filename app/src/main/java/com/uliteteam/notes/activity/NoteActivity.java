@@ -7,16 +7,9 @@ import android.os.Handler;
 import android.os.Looper;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
-import android.view.View;
 import android.widget.EditText;
-import android.widget.ImageView;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.view.menu.MenuBuilder;
-import com.google.android.material.bottomsheet.BottomSheetDialog;
-import com.google.android.material.elevation.SurfaceColors;
-////import com.itsaky.androidide.logsender.LogSender;
-import com.uliteteam.notes.activity.BaseActivity;
+//// import com.itsaky.androidide.logsender.LogSender;
 import com.uliteteam.notes.model.Note;
 import com.uliteteam.notes.databinding.ActivityNoteBinding;
 import android.view.MenuItem;
@@ -34,7 +27,7 @@ public class NoteActivity extends BaseActivity {
   TextViewUndoRedo undoRedo;
   private MenuItem undo = null;
   private MenuItem redo = null;
-     String selectedNoteColor = "0";
+  String selectedNoteColor = "0";
 
   final Runnable updateMenuIconsState = () -> undoRedo.updateButtons();
 
@@ -46,7 +39,6 @@ public class NoteActivity extends BaseActivity {
 
     setContentView(binding.getRoot());
     setSupportActionBar(binding.toolbar);
-
 
     binding.noteTitle.requestFocus();
     binding.fab.setOnClickListener(n -> FabClick());
@@ -79,11 +71,8 @@ public class NoteActivity extends BaseActivity {
         });
   }
 
-
   // get Date and time
   String todeysDate = Calendar.getInstance().getTime().toString();
-
-  
 
   @Override
   public void onBackPressed() {
@@ -151,16 +140,21 @@ public class NoteActivity extends BaseActivity {
       return true;
     } else if (id == R.id.colorOfNote) {
 
-     BottomSheetCatalog bottomSheet = new BottomSheetCatalog(NoteActivity.this,R.style.ModalBottomSheetDialog ,selectedNoteColor, new BottomSheetCatalogCallBack(){
-               @Override
-                    public void onChanged(String color){
-                        selectedNoteColor = color;
-                    }
-           });
-            bottomSheet.setSelectedNoteColor(selectedNoteColor);
-            bottomSheet.setAppbar(binding.appBar);
-            bottomSheet.setBackground(binding.Coordinator);
-            bottomSheet.show();
+      BottomSheetCatalog bottomSheet =
+          new BottomSheetCatalog(
+              NoteActivity.this,
+              R.style.ModalBottomSheetDialog,
+              selectedNoteColor,
+              new BottomSheetCatalogCallBack() {
+                @Override
+                public void onChanged(String color) {
+                  selectedNoteColor = color;
+                }
+              });
+      bottomSheet.setSelectedNoteColor(selectedNoteColor);
+      bottomSheet.setAppbar(binding.appBar);
+      bottomSheet.setBackground(binding.Coordinator);
+      bottomSheet.show();
 
       return true;
     } else return false;

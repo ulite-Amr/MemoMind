@@ -10,30 +10,21 @@ import android.content.res.Configuration;
 import android.graphics.Color;
 import android.icu.util.Calendar;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
-import android.os.ext.SdkExtensions;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
-import android.widget.EditText;
-import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.PickVisualMediaRequest;
 import androidx.activity.result.contract.ActivityResultContracts.PickVisualMedia;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.view.menu.MenuBuilder;
-import com.google.android.material.bottomsheet.BottomSheetDialog;
-//import com.itsaky.androidide.logsender.LogSender;
-import com.uliteteam.notes.activity.BaseActivity;
+// import com.itsaky.androidide.logsender.LogSender;
 import com.uliteteam.notes.callback.BottomSheetCatalogCallBack;
 import com.uliteteam.notes.model.Note;
 import com.uliteteam.notes.R;
@@ -43,7 +34,6 @@ import com.uliteteam.notes.maneger.TextViewUndoRedo;
 import com.uliteteam.notes.ui.dialog.BottomSheetCatalog;
 import com.uliteteam.notes.util.NoteDataBase;
 import com.uliteteam.notes.utile.FilePicker;
-import java.security.PublicKey;
 
 public class Details extends BaseActivity {
 
@@ -56,49 +46,42 @@ public class Details extends BaseActivity {
   boolean Editable = false;
   ColorOfNote colorOfNote;
   NoteDataBase db;
-  public  Note note;
+  public Note note;
   public String selectedNoteColor;
   Window w = this.getWindow();
-   String colorId; 
+  String colorId;
 
   String todeysDate = Calendar.getInstance().getTime().toString();
   final Runnable updateMenuIconsState = () -> undoRedo.updateButtons();
-    private FilePicker filepicker;
-    private ActivityResultLauncher<PickVisualMediaRequest> pickMedia;
-    
-    
+  private FilePicker filepicker;
+  private ActivityResultLauncher<PickVisualMediaRequest> pickMedia;
+
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     binding = ActivityDetailsBinding.inflate(getLayoutInflater());
-//    LogSender.startLogging(this);
+    //    LogSender.startLogging(this);
     setContentView(binding.getRoot());
     setSupportActionBar(binding.toolbar);
-    
- 
+
     Intent i = getIntent();
     long id = i.getLongExtra("ID", 0);
-        
+
     db = new NoteDataBase(this);
     note = db.getNote(id);
-      colorId = note.getColor();
-      
-            filepicker =
+    colorId = note.getColor();
+
+    filepicker =
         new FilePicker(this) {
 
           @Override
-          public void onRequestPermission(boolean isGranted) {
-            
-              
-          }
+          public void onRequestPermission(boolean isGranted) {}
 
           @Override
           public void onPickFile(Uri uri) {
-  
-                return;
-              
-            }
-                                 
+
+            return;
+          }
         };
     pickMedia =
         registerForActivityResult(
@@ -108,13 +91,11 @@ public class Details extends BaseActivity {
               // photo picker.
 
             });
-        
- 
+
     selectedNoteColor = note.getColor();
-        
-        
-      binding.noteTitle.setTransitionName("TITLE");  
-        
+
+    binding.noteTitle.setTransitionName("TITLE");
+
     EditorPreview(false);
     binding.noteTitle.setText(note.getTitle());
     binding.content.setText(note.getContent());
@@ -124,23 +105,22 @@ public class Details extends BaseActivity {
 
     binding.fab.setOnClickListener(
         v -> {
-            
           if (Editable == false) {
             binding.fab.setIconResource(R.drawable.ic_save);
             EditorPreview(true);
             binding.noteTitle.requestFocus();
-            colors.setEnabled(true);    
+            colors.setEnabled(true);
             Editable = true;
           } else if (Editable == true) {
             // implements your code here
             editNote();
-           colors.setEnabled(false);    
+            colors.setEnabled(false);
           } else {
 
           }
         });
 
-    Toast.makeText(this,selectedNoteColor,Toast.LENGTH_SHORT).show();
+    Toast.makeText(this, selectedNoteColor, Toast.LENGTH_SHORT).show();
     binding.content.addTextChangedListener(
         new TextWatcher() {
 
@@ -184,9 +164,8 @@ public class Details extends BaseActivity {
     colorOfNote = new ColorOfNote(colors, Editable);
     updateUndoRedoBtnState();
     this.colors.setEnabled(false);
-        colorId = note.getColor();
+    colorId = note.getColor();
     return super.onCreateOptionsMenu(menu);
-        
   }
 
   // Update Undo/Redo Maneger
@@ -200,7 +179,7 @@ public class Details extends BaseActivity {
   public boolean onOptionsItemSelected(MenuItem item) {
 
     var id = item.getItemId();
-        colorId = note.getColor();
+    colorId = note.getColor();
 
     if (undoRedo != null) {
       undoRedo.updateButtons();
@@ -250,24 +229,27 @@ public class Details extends BaseActivity {
       return true;
 
     } else if (id == R.id.colorOfNote) {
-           BottomSheetCatalog bottomSheet = new BottomSheetCatalog(Details.this,R.style.ModalBottomSheetDialog ,selectedNoteColor, new BottomSheetCatalogCallBack(){
-               @Override
-                    public void onChanged(String color){
-                        selectedNoteColor = color;
-                    }
-           });
-            bottomSheet.setSelectedNoteColor(selectedNoteColor);
-            bottomSheet.setAppbar(binding.appBar);
-            bottomSheet.setBackground(binding.Coordinator);
-            bottomSheet.show();
-      
+      BottomSheetCatalog bottomSheet =
+          new BottomSheetCatalog(
+              Details.this,
+              R.style.ModalBottomSheetDialog,
+              selectedNoteColor,
+              new BottomSheetCatalogCallBack() {
+                @Override
+                public void onChanged(String color) {
+                  selectedNoteColor = color;
+                }
+              });
+      bottomSheet.setSelectedNoteColor(selectedNoteColor);
+      bottomSheet.setAppbar(binding.appBar);
+      bottomSheet.setBackground(binding.Coordinator);
+      bottomSheet.show();
+
       return true;
     } else return false;
   }
-    
-    
-    
-  private void clickAnimation(View v,String color) {
+
+  private void clickAnimation(View v, String color) {
     // TODO: Implement this method
 
     android.content.res.ColorStateList clrb =
@@ -353,6 +335,4 @@ public class Details extends BaseActivity {
     binding.fab.setIconResource(R.drawable.ic_edit);
     binding.noteTitleText.setText(binding.noteTitle.getText().toString());
   }
-
-
 }

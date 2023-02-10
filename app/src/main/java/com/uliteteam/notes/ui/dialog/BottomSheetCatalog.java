@@ -2,26 +2,15 @@ package com.uliteteam.notes.ui.dialog;
 
 import android.app.Activity;
 import android.content.Context;
-import android.os.Build;
-import android.os.ext.SdkExtensions;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.PickVisualMediaRequest;
-import androidx.activity.result.contract.ActivityResultContracts.PickVisualMedia;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
-import com.uliteteam.notes.BuildConfig;
 import com.uliteteam.notes.R;
 import com.uliteteam.notes.callback.BottomSheetCatalogCallBack;
-import com.uliteteam.notes.databinding.ColorPickNoteBinding;
-import com.uliteteam.notes.model.Note;
-import com.uliteteam.notes.ui.dialog.BottomSheetCatalog;
-import com.uliteteam.notes.util.NoteDataBase;
-import com.uliteteam.notes.utile.FilePicker;
 
 public class BottomSheetCatalog {
 
@@ -35,11 +24,12 @@ public class BottomSheetCatalog {
   private final LinearLayout menuImage;
   public BottomSheetCatalogCallBack callBack;
 
-  public BottomSheetCatalog(Context context, int style, String selectedNoteColor, BottomSheetCatalogCallBack callBack) {
+  public BottomSheetCatalog(
+      Context context, int style, String selectedNoteColor, BottomSheetCatalogCallBack callBack) {
     this.context = context;
     this.selectedNoteColor = selectedNoteColor;
     this.bottomSheetDialog = new BottomSheetDialog(context, style);
-        
+
     View bottomSheetView = LayoutInflater.from(context).inflate(R.layout.color_pick_note, null);
     bottomSheetDialog.setContentView(bottomSheetView);
     this.imageColors = new ImageView[11];
@@ -90,8 +80,8 @@ public class BottomSheetCatalog {
   }
 
   public void statusColors() {
-        
-   if(callBack != null) callBack.onChanged(selectedNoteColor);
+
+    if (callBack != null) callBack.onChanged(selectedNoteColor);
 
     Window w = ((Activity) context).getWindow();
 
