@@ -17,7 +17,6 @@ import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.elevation.SurfaceColors;
 ////import com.itsaky.androidide.logsender.LogSender;
 import com.uliteteam.notes.activity.BaseActivity;
-import com.uliteteam.notes.callback.BottomSheetColorsCallBack;
 import com.uliteteam.notes.model.Note;
 import com.uliteteam.notes.databinding.ActivityNoteBinding;
 import android.view.MenuItem;
@@ -27,6 +26,7 @@ import android.content.Intent;
 import com.uliteteam.notes.maneger.TextViewUndoRedo;
 import com.uliteteam.notes.ui.dialog.BottomSheetCatalog;
 import com.uliteteam.notes.util.NoteDataBase;
+import com.uliteteam.notes.callback.BottomSheetCatalogCallBack;
 
 public class NoteActivity extends BaseActivity {
 
@@ -151,8 +151,15 @@ public class NoteActivity extends BaseActivity {
       return true;
     } else if (id == R.id.colorOfNote) {
 
-      BottomSheetCatalog bottomSheet = new BottomSheetCatalog(NoteActivity.this,R.style.ModalBottomSheetDialog);
+     BottomSheetCatalog bottomSheet = new BottomSheetCatalog(NoteActivity.this,R.style.ModalBottomSheetDialog ,selectedNoteColor, new BottomSheetCatalogCallBack(){
+               @Override
+                    public void onChanged(String color){
+                        selectedNoteColor = color;
+                    }
+           });
             bottomSheet.setSelectedNoteColor(selectedNoteColor);
+            bottomSheet.setAppbar(binding.appBar);
+            bottomSheet.setBackground(binding.Coordinator);
             bottomSheet.show();
 
       return true;

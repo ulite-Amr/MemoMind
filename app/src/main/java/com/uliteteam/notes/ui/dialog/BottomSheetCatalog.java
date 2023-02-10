@@ -16,7 +16,7 @@ import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.uliteteam.notes.BuildConfig;
 import com.uliteteam.notes.R;
-import com.uliteteam.notes.callback.BottomSheetColorsCallBack;
+import com.uliteteam.notes.callback.BottomSheetCatalogCallBack;
 import com.uliteteam.notes.databinding.ColorPickNoteBinding;
 import com.uliteteam.notes.model.Note;
 import com.uliteteam.notes.ui.dialog.BottomSheetCatalog;
@@ -30,17 +30,21 @@ public class BottomSheetCatalog {
   private final ImageView[] imageColors;
   private final View[] viewColors;
   public String selectedNoteColor;
+  public AppBarLayout appbar;
+  public View background;
   private final LinearLayout menuImage;
+  public BottomSheetCatalogCallBack callBack;
 
-  public BottomSheetCatalog(Context context, int style) {
+  public BottomSheetCatalog(Context context, int style, String selectedNoteColor, BottomSheetCatalogCallBack callBack) {
     this.context = context;
     this.selectedNoteColor = selectedNoteColor;
     this.bottomSheetDialog = new BottomSheetDialog(context, style);
+        
     View bottomSheetView = LayoutInflater.from(context).inflate(R.layout.color_pick_note, null);
     bottomSheetDialog.setContentView(bottomSheetView);
     this.imageColors = new ImageView[11];
     this.viewColors = new View[11];
-
+    this.callBack = callBack;
     for (int i = 0; i < 11; i++) {
       this.imageColors[i] =
           bottomSheetView.findViewById(
@@ -68,7 +72,7 @@ public class BottomSheetCatalog {
       final int finalI = i;
       viewColors[i].setOnClickListener(
           v -> {
-            selectedNoteColor = String.valueOf(finalI);
+            this.selectedNoteColor = String.valueOf(finalI);
             for (int j = 0; j < 11; j++) {
               imageColors[j].setImageResource(j == finalI ? R.drawable.done_circle : 0);
             }
@@ -85,8 +89,32 @@ public class BottomSheetCatalog {
     // Add your implementation here
   }
 
-  private void statusColors() {
-    // Add your implementation here
+  public void statusColors() {
+        
+   if(callBack != null) callBack.onChanged(selectedNoteColor);
+
+    Window w = ((Activity) context).getWindow();
+
+    int[] colorIds = {
+      0,
+      R.color.color1,
+      R.color.color2,
+      R.color.color3,
+      R.color.color4,
+      R.color.color5,
+      R.color.color6,
+      R.color.color7,
+      R.color.color8,
+      R.color.color9,
+      R.color.color10
+    };
+    if (Integer.parseInt(selectedNoteColor) > 0) {
+      int selectedColorId = colorIds[Integer.parseInt(selectedNoteColor)];
+      background.setBackgroundColor(context.getColor(selectedColorId));
+      w.setStatusBarColor(context.getColor(selectedColorId));
+      w.setNavigationBarColor(context.getColor(selectedColorId));
+      appbar.setBackgroundColor(context.getColor(selectedColorId));
+    }
   }
 
   public String getSelectedNoteColor() {
@@ -95,5 +123,21 @@ public class BottomSheetCatalog {
 
   public void setSelectedNoteColor(String selectedNoteColor) {
     this.selectedNoteColor = selectedNoteColor;
+  }
+
+  public AppBarLayout getAppbar() {
+    return this.appbar;
+  }
+
+  public void setAppbar(AppBarLayout appbar) {
+    this.appbar = appbar;
+  }
+
+  public View getBackground() {
+    return this.background;
+  }
+
+  public void setBackground(View background) {
+    this.background = background;
   }
 }

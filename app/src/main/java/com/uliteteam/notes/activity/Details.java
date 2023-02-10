@@ -34,6 +34,7 @@ import androidx.appcompat.view.menu.MenuBuilder;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 //import com.itsaky.androidide.logsender.LogSender;
 import com.uliteteam.notes.activity.BaseActivity;
+import com.uliteteam.notes.callback.BottomSheetCatalogCallBack;
 import com.uliteteam.notes.model.Note;
 import com.uliteteam.notes.R;
 import com.uliteteam.notes.databinding.ActivityDetailsBinding;
@@ -56,7 +57,7 @@ public class Details extends BaseActivity {
   ColorOfNote colorOfNote;
   NoteDataBase db;
   public  Note note;
-  String selectedNoteColor;
+  public String selectedNoteColor;
   Window w = this.getWindow();
    String colorId; 
 
@@ -111,7 +112,6 @@ public class Details extends BaseActivity {
  
     selectedNoteColor = note.getColor();
         
-        if(selectedNoteColor != null) binding.Coordinator.setBackgroundColor(R.color.color2);
         
       binding.noteTitle.setTransitionName("TITLE");  
         
@@ -250,8 +250,15 @@ public class Details extends BaseActivity {
       return true;
 
     } else if (id == R.id.colorOfNote) {
-           BottomSheetCatalog bottomSheet = new BottomSheetCatalog(Details.this,R.style.ModalBottomSheetDialog );
-            bottomSheet.setSelectedNoteColor(colorId);
+           BottomSheetCatalog bottomSheet = new BottomSheetCatalog(Details.this,R.style.ModalBottomSheetDialog ,selectedNoteColor, new BottomSheetCatalogCallBack(){
+               @Override
+                    public void onChanged(String color){
+                        selectedNoteColor = color;
+                    }
+           });
+            bottomSheet.setSelectedNoteColor(selectedNoteColor);
+            bottomSheet.setAppbar(binding.appBar);
+            bottomSheet.setBackground(binding.Coordinator);
             bottomSheet.show();
       
       return true;
