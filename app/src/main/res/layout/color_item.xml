@@ -11,7 +11,6 @@
     <View
          android:layout_height="35dp"
          android:layout_width="35dp"
-         android:background="@drawable/defult_color"
          android:id="@+id/color1" />
 
     <ImageView

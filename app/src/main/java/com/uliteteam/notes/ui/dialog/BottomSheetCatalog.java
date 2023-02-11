@@ -16,8 +16,6 @@ public class BottomSheetCatalog {
 
   private final Context context;
   private final BottomSheetDialog bottomSheetDialog;
-  private final ImageView[] imageColors;
-  private final View[] viewColors;
   public String selectedNoteColor;
   public AppBarLayout appbar;
   public View background;
@@ -32,21 +30,8 @@ public class BottomSheetCatalog {
 
     View bottomSheetView = LayoutInflater.from(context).inflate(R.layout.color_pick_note, null);
     bottomSheetDialog.setContentView(bottomSheetView);
-    this.imageColors = new ImageView[11];
-    this.viewColors = new View[11];
     this.callBack = callBack;
-    for (int i = 0; i < 11; i++) {
-      this.imageColors[i] =
-          bottomSheetView.findViewById(
-              context
-                  .getResources()
-                  .getIdentifier("imageColor" + (i + 1), "id", context.getPackageName()));
-      this.viewColors[i] =
-          bottomSheetView.findViewById(
-              context
-                  .getResources()
-                  .getIdentifier("color" + (i + 1), "id", context.getPackageName()));
-    }
+
     this.menuImage = bottomSheetView.findViewById(R.id.menuImage);
     this.menuImage.setClickable(true);
     this.menuImage.setOnClickListener(
@@ -54,21 +39,6 @@ public class BottomSheetCatalog {
           launchPhotoPicker();
           bottomSheetDialog.cancel();
         });
-    for (int i = 0; i < imageColors.length; i++) {
-      imageColors[i].setImageResource(
-          i == Integer.parseInt(selectedNoteColor) ? R.drawable.done_circle : 0);
-    }
-    for (int i = 0; i < 11; i++) {
-      final int finalI = i;
-      viewColors[i].setOnClickListener(
-          v -> {
-            this.selectedNoteColor = String.valueOf(finalI);
-            for (int j = 0; j < 11; j++) {
-              imageColors[j].setImageResource(j == finalI ? R.drawable.done_circle : 0);
-            }
-            statusColors();
-          });
-    }
   }
 
   public void show() {
