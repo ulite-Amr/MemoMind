@@ -1,23 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<LinearLayout
      xmlns:android="http://schemas.android.com/apk/res/android"
      xmlns:app="http://schemas.android.com/apk/res-auto"
      xmlns:tools="http://schemas.android.com/tools"
      android:layout_height="wrap_content"
-     android:layout_width="0dp"
-     android:layout_marginEnd="5dp"
-     android:layout_weight="1">
+     android:layout_width="wrap_content">
 
-    <View
-         android:layout_height="35dp"
-         android:layout_width="35dp"
-         android:id="@+id/color1" />
+    <FrameLayout
+         android:layout_height="wrap_content"
+         android:layout_width="0dp"
+         android:layout_marginEnd="5dp"
+         android:layout_weight="1">
 
-    <ImageView
-         android:layout_height="35dp"
-         android:layout_width="35dp"
-         android:padding="10dp"
-         android:tint="?colorOnSurface"
-         android:id="@+id/imageColor1" />
+        <View
+             android:layout_height="35dp"
+             android:layout_width="35dp"
+             android:id="@+id/color1" />
 
-</FrameLayout>
+        <ImageView
+             android:layout_height="35dp"
+             android:layout_width="35dp"
+             android:padding="10dp"
+             android:tint="?colorOnSurface"
+             android:id="@+id/imageColor1" />
+
+    </FrameLayout>
+
+</LinearLayout>
