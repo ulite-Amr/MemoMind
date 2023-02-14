@@ -50,6 +50,7 @@ public class Details extends BaseActivity {
   public String selectedNoteColor;
   Window w = this.getWindow();
   String colorId;
+  BottomSheetCatalog bottomSheet;
 
   String todeysDate = Calendar.getInstance().getTime().toString();
   final Runnable updateMenuIconsState = () -> undoRedo.updateButtons();
@@ -102,6 +103,22 @@ public class Details extends BaseActivity {
 
     binding.noteTitleText.setText(note.getTitle());
     binding.contentText.setText(note.getContent());
+
+    bottomSheet =
+        new BottomSheetCatalog(
+            Details.this,
+            R.style.ModalBottomSheetDialog,
+            selectedNoteColor,
+            new BottomSheetCatalogCallBack() {
+              @Override
+              public void onChanged(String color) {
+                selectedNoteColor = color;
+              }
+            });
+    bottomSheet.setSelectedNoteColor(selectedNoteColor);
+    bottomSheet.setAppbar(binding.appBar);
+    bottomSheet.setBackground(binding.Coordinator);
+    bottomSheet.statusColors();
 
     binding.fab.setOnClickListener(
         v -> {
@@ -229,20 +246,6 @@ public class Details extends BaseActivity {
       return true;
 
     } else if (id == R.id.colorOfNote) {
-      BottomSheetCatalog bottomSheet =
-          new BottomSheetCatalog(
-              Details.this,
-              R.style.ModalBottomSheetDialog,
-              selectedNoteColor,
-              new BottomSheetCatalogCallBack() {
-                @Override
-                public void onChanged(String color) {
-                  selectedNoteColor = color;
-                }
-              });
-      bottomSheet.setSelectedNoteColor(selectedNoteColor);
-      bottomSheet.setAppbar(binding.appBar);
-      bottomSheet.setBackground(binding.Coordinator);
       bottomSheet.show();
 
       return true;

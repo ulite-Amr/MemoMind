@@ -7,10 +7,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.widget.LinearLayout;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
+import com.google.android.material.elevation.SurfaceColors;
 import com.uliteteam.notes.R;
 import com.uliteteam.notes.adapter.ColorAdapter;
 import com.uliteteam.notes.callback.BottomSheetCatalogCallBack;
@@ -20,9 +22,9 @@ import java.util.List;
 
 public class BottomSheetCatalog {
 
-  private final  Context context;
+  private final Context context;
   private final BottomSheetDialog bottomSheetDialog;
-  public  String selectedNoteColor;
+  public String selectedNoteColor;
   public AppBarLayout appbar;
   public View background;
   private final LinearLayout menuImage;
@@ -44,14 +46,13 @@ public class BottomSheetCatalog {
 
     /*List Added Here In bottomSheet
     -----------------------------*/
-
     this.colorRecycler = bottomSheetView.findViewById(R.id.ColorsList);
 
     LinearLayoutManager horizontalLayoutManager =
         new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false);
 
     List<Integer> colors = new ArrayList<>();
-    colors.add(Color.GRAY);    
+    colors.add(Color.GRAY);
     colors.add(R.color.color1);
     colors.add(R.color.color2);
     colors.add(R.color.color3);
@@ -64,15 +65,20 @@ public class BottomSheetCatalog {
     colors.add(R.color.color10);
 
     colorRecycler.setLayoutManager(horizontalLayoutManager);
-    adapter = new ColorAdapter(context, colors,Integer.parseInt(selectedNoteColor),new ColersCallBack() {
-                @Override
-                public void onChanged(String color) {
-                    setSelectedNoteColor(color);
-                    statusColors();
-                }
-              });
+    adapter =
+        new ColorAdapter(
+            context,
+            colors,
+            Integer.parseInt(selectedNoteColor),
+            new ColersCallBack() {
+              @Override
+              public void onChanged(String color) {
+                setSelectedNoteColor(color);
+                statusColors();
+              }
+            });
     colorRecycler.setAdapter(adapter);
-        
+
     this.menuImage.setClickable(true);
     this.menuImage.setOnClickListener(
         v -> {
@@ -114,11 +120,17 @@ public class BottomSheetCatalog {
       w.setStatusBarColor(context.getColor(selectedColorId));
       w.setNavigationBarColor(context.getColor(selectedColorId));
       appbar.setBackgroundColor(context.getColor(selectedColorId));
+    } else {
+      int colorBase = SurfaceColors.SURFACE_2.getColor(context);
+      background.setBackgroundColor(colorBase);
+      w.setStatusBarColor(colorBase);
+      w.setNavigationBarColor(colorBase);
+      appbar.setBackgroundColor(colorBase);
     }
   }
 
   public String getSelectedNoteColor() {
-    return  String.valueOf(adapter.getSelectedColor());
+    return String.valueOf(adapter.getSelectedColor());
   }
 
   public void setSelectedNoteColor(String selectedNoteColor) {
@@ -140,5 +152,4 @@ public class BottomSheetCatalog {
   public void setBackground(View background) {
     this.background = background;
   }
-    
 }
