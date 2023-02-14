@@ -1,5 +1,6 @@
 package com.uliteteam.notes.adapter;
 
+import android.app.Activity;
 import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
@@ -10,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
+import androidx.core.app.ActivityOptionsCompat;
 import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.vectordrawable.graphics.drawable.AnimationUtilsCompat;
@@ -51,8 +53,7 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.ViewHolder> 
 
     Context context = holder.itemView.getContext();
 
-    holder.itemView.setAnimation(
-        AnimationUtils.loadAnimation(holder.itemView.getContext(), R.anim.list_animation));
+    
     String title = notes.get(i).getTitle();
     String content = notes.get(i).getContent();
     String date = notes.get(i).getDate();
@@ -61,7 +62,7 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.ViewHolder> 
     holder.title.setText(title);
     holder.noteDate.setText(date);
     holder.icon.setText(title.substring(0, 1).toUpperCase(Locale.US));
-
+        
     int[] colors = {
       0,
       R.color.color1,
@@ -114,6 +115,9 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.ViewHolder> 
       layoutId = R.layout.row_list_item;
     }
     View view = LayoutInflater.from(parent.getContext()).inflate(layoutId, parent, false);
+        
+    ((Activity) v.getContext()).overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+        
     return new ViewHolder(view);
   }
 
@@ -138,7 +142,10 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.ViewHolder> 
           v -> {
             Intent in = new Intent(v.getContext(), Details.class);
             in.putExtra("ID", notes.get(getBindingAdapterPosition()).getID());
-            v.getContext().startActivity(in);
+                    ((Activity) v.getContext()).overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+                        ActivityOptionsCompat options = ActivityOptionsCompat.
+                    makeSceneTransitionAnimation((Activity)v.getContext(), (View) card, "appcard");
+            v.getContext().startActivity(in, options.toBundle());
           });
 
       final MainActivity mainActivity = (MainActivity) itemView.getContext();

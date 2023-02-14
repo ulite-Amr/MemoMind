@@ -95,7 +95,7 @@ public class Details extends BaseActivity {
 
     selectedNoteColor = note.getColor();
 
-    binding.noteTitle.setTransitionName("TITLE");
+    binding.Coordinator.setTransitionName("appcard");
 
     EditorPreview(false);
     binding.noteTitle.setText(note.getTitle());
