@@ -53,6 +53,8 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.ViewHolder> 
 
     Context context = holder.itemView.getContext();
 
+        holder.itemView.setAnimation(
+        AnimationUtils.loadAnimation(holder.itemView.getContext(), R.anim.list_animation));
     
     String title = notes.get(i).getTitle();
     String content = notes.get(i).getContent();
@@ -100,7 +102,7 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.ViewHolder> 
   //  OnCreate Holder
   @Override
   public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-
+        
     int layoutId;
     preferences = PreferenceManager.getDefaultSharedPreferences(parent.getContext());
     String key = preferences.getString("rows_style", "default");
@@ -116,7 +118,7 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.ViewHolder> 
     }
     View view = LayoutInflater.from(parent.getContext()).inflate(layoutId, parent, false);
         
-    ((Activity) v.getContext()).overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+
         
     return new ViewHolder(view);
   }
