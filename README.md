@@ -22,7 +22,7 @@ NoteScribe is a versatile note-taking app designed for effective organization an
 - [ ] Added trash Activity
 - [ ] Added Archive Activity
 - [ ] Themes options
-- [ ] Backup & Restore
+- [ ] Backup & Restoree
 
 
 ### Lisence

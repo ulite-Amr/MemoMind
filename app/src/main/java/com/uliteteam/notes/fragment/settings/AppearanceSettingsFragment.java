@@ -12,23 +12,47 @@ import com.uliteteam.notes.App;
 import com.uliteteam.notes.R;
 import androidx.preference.PreferenceManager;
 
+/* This class represents a fragment for appearance settings that extends BasePreferenceFragment
+ and implements SharedPreferences.OnSharedPreferenceChangeListener */
+
 public class AppearanceSettingsFragment extends BasePreferenceFragment
     implements SharedPreferences.OnSharedPreferenceChangeListener {
-
-    
+  // The default constructor of the class.
   public AppearanceSettingsFragment() {
-    super(R.string.pref_appearance);
+    super(R.string.pref_appearance); // calling the super constructor of BasePreferenceFragment
   }
 
+  // This method is called during the fragment creation.
   @Override
   public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+    // Inflates the XML preferences file for this fragment
     addPreferencesFromResource(R.xml.pref_appearance);
+
+    // Gets the SharedPreferences for the default preferences of the application.
     final SharedPreferences preferences =
         androidx.preference.PreferenceManager.getDefaultSharedPreferences(getActivity());
+
+    // Gets the App instance
     var app = App.getInstance();
+
+    // Finds the preference that allows the user to change the theme.
     var preferenceTheme = findPreference("notes_theme");
+
+    // Finds the SwitchPreferenceCompat for dynamic color and sets its listener.
     final SwitchPreferenceCompat dynamicColor =
         (SwitchPreferenceCompat) findPreference("dymanic_color");
+    dynamicColor.setOnPreferenceChangeListener(
+        new Preference.OnPreferenceChangeListener() {
+          @Override
+          public boolean onPreferenceChange(Preference preference, Object newValue) {
+            boolean turned = (Boolean) newValue;
+            preferences.edit().putBoolean("dymanic_color", turned).apply();
+            showSnackbar("Restart the application to apply the dynamic colors");
+            return true;
+          }
+        });
+
+    // Sets the OnPreferenceChangeListener for the theme preference.
     preferenceTheme.setOnPreferenceChangeListener(
         new Preference.OnPreferenceChangeListener() {
           @Override
@@ -48,7 +72,6 @@ public class AppearanceSettingsFragment extends BasePreferenceFragment
                 }
                 break;
             }
-
             // Save the selected theme to SharedPreferences
             SharedPreferences preferences =
                 PreferenceManager.getDefaultSharedPreferences(getContext());
@@ -59,17 +82,7 @@ public class AppearanceSettingsFragment extends BasePreferenceFragment
           }
         });
 
-    dynamicColor.setOnPreferenceChangeListener(
-        new Preference.OnPreferenceChangeListener() {
-          @Override
-          public boolean onPreferenceChange(Preference preference, Object newValue) {
-            boolean turned = (Boolean) newValue;
-            preferences.edit().putBoolean("dymanic_color", turned).apply();
-            showSnackbar("Restart the application to apply the dynamic colors");
-            return true;
-          }
-        });
-
+    // Makes the dynamic color preference visible or not according to the Android version.
     if (DynamicColors.isDynamicColorAvailable()) {
       dynamicColor.setVisible(true);
     } else {
@@ -77,17 +90,22 @@ public class AppearanceSettingsFragment extends BasePreferenceFragment
     }
   }
 
+  // Called immediately after onCreateView() has returned, but before any saved state has been
+  // restored in to the view.
   @Override
   public void onViewCreated(View view, Bundle savedInstanceState) {
     super.onViewCreated(view, savedInstanceState);
   }
 
+  // Called when the view previously created by onCreateView() has been detached from the fragment.
   @Override
   public void onDestroyView() {
-
     super.onDestroyView();
   }
 
+  // This method is called when a shared preference is changed, added, or removed.
   @Override
-  public void onSharedPreferenceChanged(SharedPreferences arg0, String arg1) {}
+  public void onSharedPreferenceChanged(SharedPreferences arg0, String arg1) {
+    // Leave empty since there are no shared preferences to change in this fragment.
+  }
 }

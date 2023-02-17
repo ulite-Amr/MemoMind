@@ -15,10 +15,11 @@ public class RootSettingsFragment extends BasePreferenceFragment {
 
   @Override
   public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
-        setPreferencesFromResource(R.xml.pref_root, rootKey);
+    // Inflate the preferences from the XML resource file
+    setPreferencesFromResource(R.xml.pref_root, rootKey);
         
+    // Set the enter and exit transition animations for this fragment
     setEnterTransition(new MaterialSharedAxis(MaterialSharedAxis.X, false));
     setExitTransition(new MaterialSharedAxis(MaterialSharedAxis.X, true));
-        
-    }
+  }
 }

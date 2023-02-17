@@ -20,88 +20,114 @@ import com.uliteteam.notes.callback.ColersCallBack;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+ * This class represents a BottomSheetDialog that contains:
+ * - A color picker with a RecyclerView
+ * - An "Add Image" option (not yet implemented)
+ */
 public class BottomSheetCatalog {
 
-  private final Context context;
-  private final BottomSheetDialog bottomSheetDialog;
-  public String selectedNoteColor;
-  public AppBarLayout appbar;
-  public View background;
-  private final LinearLayout menuImage;
-  public BottomSheetCatalogCallBack callBack;
-  public RecyclerView colorRecycler;
-  private final ColorAdapter adapter;
+    // Fields
+    private final Context context; // Context to use in Activity
+    private final BottomSheetDialog bottomSheetDialog; // The BottomSheetDialog from the Material Library
+    public String selectedNoteColor; // The selected note color, to be used with ids
+    public AppBarLayout appbar; // The appbar to use in setMethod to statusColor()
+    public View background; // The background view to use in setMethod to statusColor()
+    private final LinearLayout menuImage; // The linear layout that contains the "Add image" option
+    public BottomSheetCatalogCallBack callBack; // Callback to be used for changes in other classes
+    public RecyclerView colorRecycler; // The RecyclerView for the color picker
+    private final ColorAdapter adapter; // The adapter for the color RecyclerView
 
+    /*
+     * Constructor for BottomSheetCatalog
+     * @param context The context to use in Activity
+     * @param style The BottomSheet style
+     * @param selectedNoteColor The selected note color
+     * @param callBack The BottomSheet callback to be used for changes in other classes
+     */
   public BottomSheetCatalog(
       Context context, int style, String selectedNoteColor, BottomSheetCatalogCallBack callBack) {
     this.context = context;
     this.selectedNoteColor = selectedNoteColor;
     this.bottomSheetDialog = new BottomSheetDialog(context, style);
-
+        
+        
+    // Inflating the layout for the bottom sheet view
     View bottomSheetView = LayoutInflater.from(context).inflate(R.layout.color_pick_note, null);
+
+    // Setting the content view of the bottom sheet dialog
     bottomSheetDialog.setContentView(bottomSheetView);
+
+    // Setting the callback for the color selection
     this.callBack = callBack;
 
+    // Finding the menu image view in the bottom sheet view
     this.menuImage = bottomSheetView.findViewById(R.id.menuImage);
 
-    /*List Added Here In bottomSheet
-    -----------------------------*/
+    // Finding the color recycler view in the bottom sheet view
     this.colorRecycler = bottomSheetView.findViewById(R.id.ColorsList);
 
-    LinearLayoutManager horizontalLayoutManager =
-        new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false);
+    // Creating a horizontal layout manager for the color recycler view
+    LinearLayoutManager horizontalLayoutManager = new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false);
 
+    // Creating a list of colors to display in the color recycler view
     List<Integer> colors = new ArrayList<>();
-    colors.add(Color.GRAY);
-    colors.add(R.color.color1);
-    colors.add(R.color.color2);
-    colors.add(R.color.color3);
-    colors.add(R.color.color4);
-    colors.add(R.color.color5);
-    colors.add(R.color.color6);
-    colors.add(R.color.color7);
-    colors.add(R.color.color8);
-    colors.add(R.color.color9);
-    colors.add(R.color.color10);
+        colors.add(Color.GRAY);
+        colors.add(R.color.color1);
+        colors.add(R.color.color2);
+        colors.add(R.color.color3);
+        colors.add(R.color.color4);
+        colors.add(R.color.color5);
+        colors.add(R.color.color6);
+        colors.add(R.color.color7);
+        colors.add(R.color.color8);
+        colors.add(R.color.color9);
+        colors.add(R.color.color10);
 
+     // Setting the layout manager for the color recycler view
     colorRecycler.setLayoutManager(horizontalLayoutManager);
-    adapter =
-        new ColorAdapter(
-            context,
-            colors,
-            Integer.parseInt(selectedNoteColor),
-            new ColersCallBack() {
-              @Override
-              public void onChanged(String color) {
-                setSelectedNoteColor(color);
-                statusColors();
-              }
-            });
-    colorRecycler.setAdapter(adapter);
 
-    this.menuImage.setClickable(true);
-    this.menuImage.setOnClickListener(
+    // Creating an adapter for the color recycler view
+        adapter = new ColorAdapter(
+        context,
+        colors,
+        Integer.parseInt(selectedNoteColor),
+        new ColersCallBack() {
+        @Override
+        public void onChanged(String color) {
+        setSelectedNoteColor(color);
+        statusColors()
+   }
+    });
+
+    // Setting the adapter for the color recycler view
+        colorRecycler.setAdapter(adapter);
+
+       // Making the menu image clickable and setting a click listener to launch the photo picker and cancel the bottom sheet dialog
+        this.menuImage.setClickable(true);
+        this.menuImage.setOnClickListener(
         v -> {
-          launchPhotoPicker();
-          bottomSheetDialog.cancel();
-        });
-  }
+        launchPhotoPicker();
+        bottomSheetDialog.cancel();
+      });
 
-  public void show() {
-    this.bottomSheetDialog.show();
-  }
+        // Method to show the bottom sheet dialog
+     public void show() {
+        this.bottomSheetDialog.show();
+    }
 
-  private void launchPhotoPicker() {
-    // Add your implementation here
-  }
+       // Method to launch the photo picker
+    private void launchPhotoPicker() {
+        // Add your implementation here
+    }
 
-  public void statusColors() {
+       /* Method to update the status bar and navigation bar colors based on the selected note color */
+    public void statusColors() {
+        if (callBack != null) callBack.onChanged(selectedNoteColor);
 
-    if (callBack != null) callBack.onChanged(selectedNoteColor);
+        Window w = ((Activity) context).getWindow();
 
-    Window w = ((Activity) context).getWindow();
-
-    int[] colorIds = {
+        int[] colorIds = {
       0,
       R.color.color1,
       R.color.color2,
@@ -114,25 +140,26 @@ public class BottomSheetCatalog {
       R.color.color9,
       R.color.color10
     };
-    if (Integer.parseInt(selectedNoteColor) > 0) {
+        
+   if (Integer.parseInt(selectedNoteColor) > 0) {
       int selectedColorId = colorIds[Integer.parseInt(selectedNoteColor)];
       background.setBackgroundColor(context.getColor(selectedColorId));
       w.setStatusBarColor(context.getColor(selectedColorId));
       w.setNavigationBarColor(context.getColor(selectedColorId));
       appbar.setBackgroundColor(context.getColor(selectedColorId));
-    } else {
+   } else {
       int colorBase = SurfaceColors.SURFACE_2.getColor(context);
       background.setBackgroundColor(colorBase);
       w.setStatusBarColor(colorBase);
       w.setNavigationBarColor(colorBase);
       appbar.setBackgroundColor(colorBase);
-    }
   }
+ }
 
   public String getSelectedNoteColor() {
     return String.valueOf(adapter.getSelectedColor());
   }
-
+        /* This method to set setSelectedNoteColor in ather classes */
   public void setSelectedNoteColor(String selectedNoteColor) {
     this.selectedNoteColor = selectedNoteColor;
   }
@@ -140,7 +167,7 @@ public class BottomSheetCatalog {
   public AppBarLayout getAppbar() {
     return this.appbar;
   }
-
+    /* This method to set Appbar color in ather classes */
   public void setAppbar(AppBarLayout appbar) {
     this.appbar = appbar;
   }
@@ -148,7 +175,9 @@ public class BottomSheetCatalog {
   public View getBackground() {
     return this.background;
   }
-
+    
+    
+    /* This method to set Background color in ather classes */
   public void setBackground(View background) {
     this.background = background;
   }
