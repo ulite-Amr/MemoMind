@@ -96,7 +96,7 @@ public class BottomSheetCatalog {
         @Override
         public void onChanged(String color) {
         setSelectedNoteColor(color);
-        statusColors()
+        statusColors();
    }
     });
 
@@ -112,9 +112,8 @@ public class BottomSheetCatalog {
       });
 
         // Method to show the bottom sheet dialog
-     public void show() {
-        this.bottomSheetDialog.show();
-    }
+    
+        
 
        // Method to launch the photo picker
     private void launchPhotoPicker() {
@@ -155,6 +154,10 @@ public class BottomSheetCatalog {
       appbar.setBackgroundColor(colorBase);
   }
  }
+    
+    public void show(){
+        this.bottomSheetDialog.show();
+    }
 
   public String getSelectedNoteColor() {
     return String.valueOf(adapter.getSelectedColor());
@@ -181,4 +184,5 @@ public class BottomSheetCatalog {
   public void setBackground(View background) {
     this.background = background;
   }
-}
+ }
+
