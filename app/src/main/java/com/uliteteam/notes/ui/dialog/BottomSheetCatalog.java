@@ -111,14 +111,7 @@ public class BottomSheetCatalog {
         bottomSheetDialog.cancel();
       });
 
-        // Method to show the bottom sheet dialog
-    
-        
-
-       // Method to launch the photo picker
-    private void launchPhotoPicker() {
-        // Add your implementation here
-    }
+   }
 
        /* Method to update the status bar and navigation bar colors based on the selected note color */
     public void statusColors() {
@@ -152,8 +145,10 @@ public class BottomSheetCatalog {
       w.setStatusBarColor(colorBase);
       w.setNavigationBarColor(colorBase);
       appbar.setBackgroundColor(colorBase);
+   }
   }
- }
+
+        // Method to show the bottom sheet dialog
     
     public void show(){
         this.bottomSheetDialog.show();
@@ -184,5 +179,9 @@ public class BottomSheetCatalog {
   public void setBackground(View background) {
     this.background = background;
   }
+    
+       // Method to launch the photo picker
+    private void launchPhotoPicker() {
+        // Add your implementation here
+    }
  }
-
