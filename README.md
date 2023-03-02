@@ -9,7 +9,7 @@ NoteScribe is a versatile note-taking app designed for effective organization an
 - Add you custom Ui home,note
 - Copy-Share
 
-### TODO
+### TODO -
 
 
 - [ ] Added Search Notes
