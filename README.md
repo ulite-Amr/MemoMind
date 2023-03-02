@@ -9,14 +9,14 @@ NoteScribe is a versatile note-taking app designed for effective organization an
 - Add you custom Ui home,note
 - Copy-Share
 
-### TODO -
+### TODO 
 
 
 - [ ] Added Search Notes
 - [ ] Added Grid style switch
 - [ ] Tag notes for easy retrieval
 - [ ] Attach images, audio, and video to notes
-    - [X] Can added image
+    - [ ] Can added image
     - [ ] Can Add Video
     - [ ] Can add audio
 - [ ] Added trash Activity
