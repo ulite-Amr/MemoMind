@@ -11,8 +11,7 @@ import com.uliteteam.notes.R;
 import androidx.appcompat.app.AppCompatActivity;
 import com.uliteteam.notes.App;
 import com.uliteteam.notes.util.CrashHandler;
-// import com.itsaky.androidide.logsender.LogSender;
-// import com.itsaky.androidide.logsender.LogSender;
+
 
 public class BaseActivity extends AppCompatActivity {
 
@@ -20,9 +19,7 @@ public class BaseActivity extends AppCompatActivity {
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
-    // LogSender.startLogging(this);
-    //    LogSender.startLogging(this);
-    // inside onCreate method
+                
     SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
     boolean isDynamic = preferences.getBoolean("dymanic_color", false);
     if (isDynamic) {
