@@ -17,7 +17,6 @@ import com.danielstone.materialaboutlibrary.model.MaterialAboutList;
 import com.danielstone.materialaboutlibrary.util.OpenSourceLicense;
 import com.google.android.material.transition.MaterialSharedAxis;
 import com.uliteteam.notes.R;
-import com.uliteteam.notes.fragment.settings.BasePreferenceFragment;
 
 public class AboutFragment extends MaterialAboutFragment {
 
@@ -91,7 +90,7 @@ public class AboutFragment extends MaterialAboutFragment {
             context,
             getDrawable(R.drawable.ic_book),
             getString(R.string.app_name),
-            "2023",
+            "2022-2023",
             "AmrAyman",
             OpenSourceLicense.GNU_GPL_3);
 

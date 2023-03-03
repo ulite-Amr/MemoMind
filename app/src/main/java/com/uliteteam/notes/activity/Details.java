@@ -7,7 +7,6 @@ import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Intent;
 import android.content.res.Configuration;
-import android.graphics.Color;
 import android.icu.util.Calendar;
 import android.net.Uri;
 import android.os.Bundle;
@@ -252,16 +251,6 @@ public class Details extends BaseActivity {
     } else return false;
   }
 
-  private void clickAnimation(View v, String color) {
-    // TODO: Implement this method
-
-    android.content.res.ColorStateList clrb =
-        new android.content.res.ColorStateList(
-            new int[][] {new int[] {}}, new int[] {Color.parseColor(color)});
-    android.graphics.drawable.RippleDrawable ripdrb =
-        new android.graphics.drawable.RippleDrawable(clrb, null, null);
-    v.setBackground(ripdrb);
-  }
 
   // Enabled(False),Enabled(True) to switch Preview Mod To Edit Mod loop
   public void EditorPreview(boolean Edit) {
