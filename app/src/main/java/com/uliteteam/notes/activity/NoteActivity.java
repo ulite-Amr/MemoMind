@@ -2,7 +2,7 @@ package com.uliteteam.notes.activity;
 
  /**
         Created By Amr Ayman
-        //And Ammar
+        //And Ammar khaled
  **/
 import android.content.res.Configuration;
 import android.icu.util.Calendar;
