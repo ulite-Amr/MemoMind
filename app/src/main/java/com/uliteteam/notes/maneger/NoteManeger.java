@@ -31,43 +31,36 @@ import android.text.TextWatcher;
 
 public class NoteManeger extends BaseActivity {
 
-  private TextViewUndoRedo undoRedo = null;
-  private MenuItem undo = null;
-  private MenuItem redo = null;
-  private MenuItem colors;
-  private boolean Editable = false;
-  private ColorOfNote colorOfNote;
-  private NoteDataBase db;
-  private Note note;
-  private String selectedNoteColor;
+  public TextViewUndoRedo undoRedo = null;
+  public MenuItem undo = null;
+  public MenuItem redo = null;
+  public MenuItem colors;
+  public boolean Editable = false;
+  public ColorOfNote colorOfNote;
+  public NoteDataBase db;
+  public Note note;
+  public String selectedNoteColor;
   // Views
-  private AppBarLayout appbar;
-  private EditText noteTitle;
-  private AppCompatEditText noteEdit;
-  private TextView noteTitleText;
-  private TextView contentText;
-  private ExtendedFloatingActionButton fab;
-  private CoordinatorLayout contenar;
-  private LinearLayout editorContinar;
-  private LinearLayout previewContinar;
+  public AppBarLayout appbar;
+  public EditText noteTitle;
+  public EditText noteEdit;
+  public TextView noteTitleText;
+  public TextView contentText;
+  public ExtendedFloatingActionButton fab;
+  public LinearLayout contenar;
+  public LinearLayout editorContinar;
+  public LinearLayout previewContinar;
 
-  private String colorId;
-  private BottomSheetCatalog bottomSheet;
+  public String colorId;
+  BottomSheetCatalog bottomSheet;
 
-  private Context context;
+  public Context context;
         
   String todeysDate = Calendar.getInstance().getTime().toString();      
 
   final Runnable updateMenuIconsState = () -> undoRedo.updateButtons();
 
-  public NoteManeger(Context context) {
-    this.context = context;
-  }
-
-  /*Constractors */
-  public MenuItem getUndo() {
-    return this.undo;
-  }
+  public NoteManeger() {}
 
   // Methods
 
@@ -265,11 +258,11 @@ public class NoteManeger extends BaseActivity {
     this.noteTitle = noteTitle;
   }
 
-  public AppCompatEditText getNoteEdit() {
+  public EditText getNoteEdit() {
     return this.noteEdit;
   }
 
-  public void setNoteEdit(AppCompatEditText noteEdit) {
+  public void setNoteEdit(EditText noteEdit) {
     this.noteEdit = noteEdit;
   }
 
@@ -297,11 +290,11 @@ public class NoteManeger extends BaseActivity {
     this.fab = fab;
   }
 
-  public CoordinatorLayout getContenar() {
+  public LinearLayout getContenar() {
     return this.contenar;
   }
 
-  public void setContenar(CoordinatorLayout contenar) {
+  public void setContenar(LinearLayout contenar) {
     this.contenar = contenar;
   }
 }
