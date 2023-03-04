@@ -10,6 +10,8 @@ import android.text.TextWatcher;
 import android.widget.EditText;
 import androidx.appcompat.view.menu.MenuBuilder;
 //// import com.itsaky.androidide.logsender.LogSender;
+import com.uliteteam.notes.activity.BaseActivity;
+import com.uliteteam.notes.maneger.NoteManeger;
 import com.uliteteam.notes.model.Note;
 import com.uliteteam.notes.databinding.ActivityNoteBinding;
 import android.view.MenuItem;
@@ -22,15 +24,13 @@ import com.uliteteam.notes.util.NoteDataBase;
 import com.uliteteam.notes.callback.BottomSheetCatalogCallBack;
 
 public class NoteActivity extends BaseActivity {
-
-  private ActivityNoteBinding binding;
-  TextViewUndoRedo undoRedo;
-  private MenuItem undo = null;
-  private MenuItem redo = null;
-  String selectedNoteColor = "0";
-
-  final Runnable updateMenuIconsState = () -> undoRedo.updateButtons();
-
+        
+        private ActivityNoteBinding binding;
+        TextViewUndoRedo undoRedo;
+        private MenuItem undo = null;
+        private MenuItem redo = null;
+        String selectedNoteColor = "0";
+        final Runnable updateMenuIconsState = () -> undoRedo.updateButtons();
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
