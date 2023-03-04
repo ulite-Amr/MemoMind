@@ -50,6 +50,8 @@ public class NoteManeger {
   }
         
   //Methods      
+        
+        
 
   public void setUndo(MenuItem undo) {
     this.undo = undo;

@@ -50,7 +50,7 @@ public class MainActivity extends BaseActivity {
 
     preferences = PreferenceManager.getDefaultSharedPreferences(this);
 
-    String title = preferences.getString("add_name_home", "NoteScribe");
+    String title = preferences.getString("add_name_home", "MemoMind");
 
     getSupportActionBar().setTitle(title);
     DrowerHandler();
@@ -153,7 +153,7 @@ public class MainActivity extends BaseActivity {
     inflateData();
     loadNotes();
     notFoundFound();
-    user_name = preferences.getString("add_name_home", "NoteScribe");
+    user_name = preferences.getString("add_name_home", "MemoMind");
     getSupportActionBar().setTitle(user_name);
   }
 

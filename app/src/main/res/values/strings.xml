@@ -2,7 +2,7 @@
 
 
     <!-- Base strings -->
-    <string name="app_name">NoteScribe</string>
+    <string name="app_name">Memo Mind</string>
     <string name="share_description">%1$s</string>
     
     <!-- Crash Activity -->
@@ -26,7 +26,7 @@
     <string name="pref_app_version">Version</string>
     <string name="pref_follow_system">Follow System</string>
     <string name="pref_note">Note</string>
-    <string name="app_des">NoteScribe is a versatile note-taking app designed for effective organization and information management. With its user-friendly interface, users can create notebooks, add text, images and other media to their notes. Notes can be easily categorized and searched for quick reference. Perfect for both personal and professional use, NoteScribe helps keep your thoughts and ideas organized. Get started today and simplify your note-taking process.</string>
+    <string name="app_des">Memo Mind is a versatile note-taking app designed for effective organization and information management. With its user-friendly interface, users can create notebooks, add text, images and other media to their notes. Notes can be easily categorized and searched for quick reference. Perfect for both personal and professional use, Memo Mindhelps keep your thoughts and ideas organized. Get started today and simplify your note-taking process.</string>
     <string name="settings_about_us_title">Contact US</string>
     
     <string name="off">Off</string>

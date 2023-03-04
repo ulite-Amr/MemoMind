@@ -14,5 +14,5 @@ dependencyResolutionManagement {
         maven { setUrl("https://jitpack.io") }
     }
 }
-rootProject.name = "NoteScribe"
+rootProject.name = "MemoMind"
 include(":app")
