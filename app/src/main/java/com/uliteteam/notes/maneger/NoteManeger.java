@@ -55,8 +55,12 @@ public class NoteManeger extends BaseActivity {
   BottomSheetCatalog bottomSheet;
 
   public Context context;
-        
-  String todeysDate = Calendar.getInstance().getTime().toString();      
+
+  public NoteManeger(Context context) {
+    this.context = context;
+  }
+
+  String todeysDate = Calendar.getInstance().getTime().toString();
 
   final Runnable updateMenuIconsState = () -> undoRedo.updateButtons();
 
@@ -177,10 +181,10 @@ public class NoteManeger extends BaseActivity {
     fab.setIconResource(R.drawable.ic_edit);
     noteTitleText.setText(noteTitle.getText().toString());
   }
-        
-  public void checkNameErrors(EditText title) {
-    if (title.getText().toString().equals("")) {
-      title.setError("Field cannot be empty!");
+
+  public void checkNameErrors() {
+    if (noteTitle.getText().toString().equals("")) {
+      noteTitle.setError("Field cannot be empty!");
 
       return;
     }
@@ -191,28 +195,27 @@ public class NoteManeger extends BaseActivity {
             noteEdit.getText().toString(),
             todeysDate,
             selectedNoteColor);
-    NoteDataBase db = new NoteDataBase(this);
+    NoteDataBase db = new NoteDataBase(context);
     db.addNote(note);
-    onBackPressed();
-  }      
-        
-  public void newCatalog(){
-          BottomSheetCatalog bottomSheet =
-          new BottomSheetCatalog(
-              this,
-              R.style.ModalBottomSheetDialog,
-              selectedNoteColor,
-              new BottomSheetCatalogCallBack() {
-                @Override
-                public void onChanged(String color) {
-                  selectedNoteColor = color;
-                }
-              });
-      bottomSheet.setSelectedNoteColor(selectedNoteColor);
-      bottomSheet.setAppbar(appbar);
-      bottomSheet.setBackground(contenar);
-      bottomSheet.show();
-  }       
+  }
+
+  public void newCatalog() {
+    BottomSheetCatalog bottomSheet =
+        new BottomSheetCatalog(
+            context,
+            R.style.ModalBottomSheetDialog,
+            selectedNoteColor,
+            new BottomSheetCatalogCallBack() {
+              @Override
+              public void onChanged(String color) {
+                selectedNoteColor = color;
+              }
+            });
+    bottomSheet.setSelectedNoteColor(selectedNoteColor);
+    bottomSheet.setAppbar(appbar);
+    bottomSheet.setBackground(contenar);
+    bottomSheet.show();
+  }
 
   public void setUndo(MenuItem undo) {
     this.undo = undo;

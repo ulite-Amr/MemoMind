@@ -8,7 +8,7 @@ import com.uliteteam.notes.databinding.ActivityNoteBinding;
 public class NoteActivity extends BaseActivity {
 
   private ActivityNoteBinding binding;
-  NoteManeger noteManeger = new NoteManeger();
+  NoteManeger noteManeger = new NoteManeger(this);
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -18,8 +18,14 @@ public class NoteActivity extends BaseActivity {
 
     setContentView(binding.getRoot());
     setSupportActionBar(binding.toolbar);
-
+        
     inflateViewToManeger();
+                noteManeger.setSelectedNoteColor("0");
+                noteManeger.fab.setOnClickListener(v ->{
+                        noteManeger.checkNameErrors();
+                        onBackPressed();        
+                });
+                
   }
 
   private void inflateViewToManeger() {
