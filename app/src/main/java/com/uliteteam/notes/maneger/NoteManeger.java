@@ -4,16 +4,20 @@ package com.uliteteam.notes.maneger;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.icu.util.Calendar;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.appcompat.widget.Toolbar;
+import androidx.appcompat.view.menu.MenuBuilder;
 import androidx.appcompat.widget.AppCompatEditText;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import com.google.android.material.appbar.AppBarLayout;
@@ -42,6 +46,7 @@ public class NoteManeger extends BaseActivity {
   public String selectedNoteColor;
   // Views
   public AppBarLayout appbar;
+  public Toolbar toolbar;      
   public EditText noteTitle;
   public EditText noteEdit;
   public TextView noteTitleText;
@@ -53,6 +58,7 @@ public class NoteManeger extends BaseActivity {
 
   public String colorId;
   BottomSheetCatalog bottomSheet;
+  int menuR;
 
   public Context context;
 
@@ -68,9 +74,71 @@ public class NoteManeger extends BaseActivity {
 
   // Methods
 
+  // on Create Menus inflate R.menu.menu_edut_note
+  public boolean onCreateOptionsMenu(Menu menu) {
+    if (menu instanceof MenuBuilder) ((MenuBuilder) menu).setOptionalIconsVisible(true);
+
+    getMenuInflater().inflate(menuR, menu);
+    undo = menu.findItem(R.id.undo);
+    redo = menu.findItem(R.id.redo);
+    this.colors = menu.findItem(R.id.colorOfNote);
+    undoRedo = new TextViewUndoRedo(noteEdit, undo, redo);
+    colorOfNote = new ColorOfNote(colors, Editable);
+    updateUndoRedoBtnState();
+    this.colors.setEnabled(false);
+    colorId = note.getColor();
+    return super.onCreateOptionsMenu(menu);
+  }
+
   // Update Undo/Redo Maneger
   public void updateUndoRedoBtnState() {
     new Handler(Looper.getMainLooper()).postDelayed(updateMenuIconsState, 10);
+  }
+
+  /*On Click Menus
+  undo,redo,(),Fovoraite,settings,archive,copy*/
+  @Override
+  public boolean onOptionsItemSelected(MenuItem item) {
+
+    var id = item.getItemId();
+    colorId = note.getColor();
+
+    if (undoRedo != null) {
+      undoRedo.updateButtons();
+    }
+
+    if (id == R.id.undo) {
+      undo();
+      return true;
+    } else if (id == R.id.redo) {
+      redo();
+      return true;
+    } else if (id == R.id.delete) {
+      // deleted Note from deleteNote Method from NoteDataBase.java
+      db.deleteNote(note.getID());
+      finish();
+      return true;
+    } else if (id == R.id.Favorite) {
+
+      return true;
+    } else if (id == R.id.settings) {
+
+    //  startActivity(new Intent(c, SettingsActivity.class));
+
+      return true;
+    } else if (id == R.id.archive) {
+
+      return true;
+    } else if (id == R.id.copy) {
+
+      copyNote();
+      return true;
+
+    } else if (id == R.id.colorOfNote) {
+      newCatalog();
+
+      return true;
+    } else return false;
   }
 
   public void copyNote() {
@@ -105,6 +173,7 @@ public class NoteManeger extends BaseActivity {
 
   protected void onCreate(Bundle savedInstanceState) {
 
+     setSupportActionBar(toolbar);
     noteEdit.addTextChangedListener(
         new TextWatcher() {
 
@@ -299,5 +368,13 @@ public class NoteManeger extends BaseActivity {
 
   public void setContenar(LinearLayout contenar) {
     this.contenar = contenar;
+  }
+
+  public int getMenuR() {
+    return this.menuR;
+  }
+
+  public void setMenuR(int menuR) {
+    this.menuR = menuR;
   }
 }
