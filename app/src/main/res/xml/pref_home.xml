@@ -15,6 +15,7 @@
             app:title="@string/RowStyle"
             app:useSimpleSummaryProvider="true"
             app:defaultValue="defult"
+						app:isPreferenceVisible="false"
             app:entries="@array/rows_style"
             app:entryValues="@array/row_style_values"
                 

@@ -179,7 +179,7 @@ public class Details extends BaseActivity {
     undoRedo = new TextViewUndoRedo(binding.content, undo, redo);
     colorOfNote = new ColorOfNote(colors, Editable);
     updateUndoRedoBtnState();
-    this.colors.setEnabled(false);
+    colors.setEnabled(false);
     colorId = note.getColor();
     return super.onCreateOptionsMenu(menu);
   }

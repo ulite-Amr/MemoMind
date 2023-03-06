@@ -46,21 +46,20 @@ public class AboutFragment extends MaterialAboutFragment {
                     getDrawable(R.drawable.mail),
                     getString(R.string.settings_about_us_title),
                     false,
-                    "test@test.com",
+                    "ulite_support@gmail.com",
                     ""))
+						.addItem(ConvenienceBuilder.createWebsiteActionItem(
+							context,
+					    getDrawable(R.drawable.github),
+				  		"Github",
+							false,
+					  	Uri.parse("https://github.com/ulite-Amr/MemoMind")))
             .build();
 
     // Create a card for community info
     MaterialAboutCard communityCard =
         new MaterialAboutCard.Builder()
             .title("Community")
-            .addItem(
-                ConvenienceBuilder.createWebsiteActionItem(
-                    context,
-                    getDrawable(R.drawable.ic_discord),
-                    "Discord",
-                    false,
-                    Uri.parse("https://test.com")))
             .addItem(
                 ConvenienceBuilder.createWebsiteActionItem(
                     context,

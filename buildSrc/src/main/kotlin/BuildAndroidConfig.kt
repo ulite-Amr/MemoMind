@@ -9,7 +9,7 @@ object BuildAndroidConfig {
     const val VERSION_CODE = 2
     
     const val VERSION_TYPE = "-Alpha01"
-    const val VERSION_NAME = "0.1.0"
+    const val VERSION_NAME = "0.1.0" + VERSION_TYPE
 
     const val SUPPORT_LIBRARY_VECTOR_DRAWABLES = true
 }

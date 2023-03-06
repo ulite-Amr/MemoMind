@@ -89,10 +89,12 @@ public class MainActivity extends BaseActivity {
               return true;
             case R.id.nav_archive:
               // Favorite Action Here
+              makeText("Not available yet");                          
               drawerLayout.closeDrawer(GravityCompat.START);
               return true;
             case R.id.nav_trash:
               // Trash Action Here
+              makeText("Not available yet");                         
               drawerLayout.closeDrawer(GravityCompat.START);
               return true;
             case R.id.nav_licence:
