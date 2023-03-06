@@ -1,7 +1,6 @@
-package com.uliteteam.notes.activity;
+package com.uliteteam.notes.activity
 
-/** Created By Amr Ayman */
-import android.content.Intent;
+/*Created By Amr Ayman*/
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.Menu;
