@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -107,7 +108,8 @@ public class BottomSheetCatalog {
         this.menuImage.setClickable(true);
         this.menuImage.setOnClickListener(
         v -> {
-        launchPhotoPicker();
+//        launchPhotoPicker();
+				Toast.makeText(context,"Not available yet",Toast.LENGTH_SHORT).show();
         bottomSheetDialog.cancel();
       });
 

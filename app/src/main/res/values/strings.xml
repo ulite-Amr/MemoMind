@@ -3,7 +3,7 @@
 
     <!-- Base strings -->
     <string name="app_name">Memo Mind</string>
-    <string name="share_description">%1$s</string>
+    <string name="share_description">Memo Mind  \n\n Notes App Create all your notes daily and at any time \n\n Features: \n\n Create the notes\n Modification of the notes\n Put the views in the notes\n Simple face and design \n Easy to use the settings \n\n Download: \n\n To download the latest version of this link %1$s/releases/latest</string>
     
     <!-- Crash Activity -->
     <string name="okay">Okay</string>

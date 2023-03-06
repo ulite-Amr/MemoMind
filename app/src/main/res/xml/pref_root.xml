@@ -4,6 +4,7 @@
     <PreferenceScreen
             app:fragment="com.uliteteam.notes.fragment.settings.GeneralSettingsFragment"
             app:key="@string/pref_general"
+						app:isPreferenceVisible="false"	
             app:title="@string/pref_general" />
     
     <PreferenceScreen
@@ -19,6 +20,7 @@
     <PreferenceScreen
             app:fragment="com.uliteteam.notes.fragment.settings.NoteSettingsFragment"
             app:key="@string/pref_note"
+						app:isPreferenceVisible="false"
             app:title="@string/pref_note" />    
 
     <PreferenceScreen
