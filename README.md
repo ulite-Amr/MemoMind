@@ -1,10 +1,15 @@
-# NoteScribe
+# Memo Mind
 
 
-NoteScribe is a versatile note-taking app designed for effective organization and information management. With its user-friendly interface, users can create notebooks, add text, images and other media to their notes. Notes can be easily categorized and searched for quick reference. Perfect for both personal and professional use, NoteScribe helps keep your thoughts and ideas organized. Get started today and simplify your note-taking process.
+Memo Mind is a versatile note-taking app designed for effective organization and information management. With its user-friendly interface, users can create notebooks, add text, images and other media to their notes. Notes can be easily categorized and searched for quick reference. Perfect for both personal and professional use, NoteScribe helps keep your thoughts and ideas organized. Get started today and simplify your note-taking process.
 
 ### Features
-- in Proggress
+- Create your notes and Handle
+- Edit Notes
+- Select Color Of Note
+- Easy to use the settings 
+- Simple face and design
+
 ### TODO 
 
 
