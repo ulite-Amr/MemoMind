@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.github.daniel-stoneuk"
+    namespace = "com.danielstone.materialaboutlibrary"
     compileSdk = BuildAndroidConfig.COMPILE_SDK_VERSION
     buildToolsVersion = "33.0.0"
 
