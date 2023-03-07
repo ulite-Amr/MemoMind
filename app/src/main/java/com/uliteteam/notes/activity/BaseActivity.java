@@ -1,5 +1,6 @@
 package com.uliteteam.notes.activity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
@@ -47,6 +48,10 @@ public class BaseActivity extends AppCompatActivity {
 
   public void makeText(String messege) {
     Toast.makeText(this, messege, Toast.LENGTH_SHORT).show();
+  }
+  
+  public void makeText(String messege,Context context) {
+    Toast.makeText(context, messege, Toast.LENGTH_SHORT).show();
   }
 
   public void url(String url) {

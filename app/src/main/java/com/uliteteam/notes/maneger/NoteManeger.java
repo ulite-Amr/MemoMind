@@ -64,8 +64,8 @@ public class NoteManeger extends BaseActivity {
     this.context = (BaseActivity) context;
   }
 
- public NoteActivity noteActivity = (NoteActivity) context;
- public Details detailsActivity = (Details) context;
+  public NoteActivity noteActivity = (NoteActivity) context;
+  public Details detailsActivity = (Details) context;
 
   String todeysDate = Calendar.getInstance().getTime().toString();
 
@@ -121,7 +121,7 @@ public class NoteManeger extends BaseActivity {
       makeText("Not available yet");
       return true;
     } else if (id == R.id.settings) {
-			noteActivity = (NoteActivity) context;
+      noteActivity = (NoteActivity) context;
       noteActivity.goSettings(context);
       return true;
     } else if (id == R.id.archive) {
@@ -140,26 +140,25 @@ public class NoteManeger extends BaseActivity {
 
   public void copyNote() {
 
-    makeText("Error 404");
+    /*Copy Note Text Title And Content
+    Result :
 
-    //    /*Copy Note Text Title And Content
-    //    Result :
-    //
-    //    title: Title Note
-    //
-    //    content :
-    //    Note Content....*/
-    //    ClipboardManager clipBoard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
-    //    ClipData clip =
-    //        ClipData.newPlainText(
-    //            "CopyNote",
-    //            "Title : "
-    //                + noteTitle.getText().toString()
-    //                + "\n\n Note Content : "
-    //                + "\n"
-    //                + noteEdit.getText().toString());
-    //    clipBoard.setPrimaryClip(clip);
-    //    makeText("Copyed Nite");
+    title: Title Note
+
+    content :
+    Note Content....*/
+    ClipboardManager clipBoard =
+        (ClipboardManager) context.getSystemService(context.CLIPBOARD_SERVICE);
+    ClipData clip =
+        ClipData.newPlainText(
+            "CopyNote",
+            "Title : "
+                + noteTitle.getText().toString()
+                + "\n\n Note Content : "
+                + "\n"
+                + noteEdit.getText().toString());
+    clipBoard.setPrimaryClip(clip);
+    makeText("Copyed Nite",context);
   }
 
   // Enabled(False),Enabled(True) to switch Preview Mod To Edit Mod loop
