@@ -27,7 +27,6 @@
     <string name="on">تشغيل</string>
     <string name="set_name">اضف اسمك</string>
     <string name="set_name_des">اضف اسمك الي الصفحة الرئيسية</string>
-    <string name="createMod">وضع انشاء الملاحظة</string>
     
     <string name="enable_dynamic">تفعيل الالوان الديناميكية</string>
     <string name="dynamic_des">الالوان الديناميكة تتفاعل نع نظام 12 فما فوق</string>

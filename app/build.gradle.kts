@@ -2,6 +2,7 @@ plugins {
     id(BuildPlugins.ANDROID_APPLICATION)
     id(BuildPlugins.KOTLIN_ANDROID)
     id(BuildPlugins.OSS_LICENSES)
+    id(BuildPlugins.KTLINT)
 }
  
 android {
@@ -82,7 +83,7 @@ dependencies {
     //--------------------------------//
     
    //---------Google Libs------------//
-       implementation(libs.about)
+       implementation(project(":materialAbout"))
   //--------------------------------//
     
     //--------Crash Activity--------//

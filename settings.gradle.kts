@@ -15,4 +15,7 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "MemoMind"
-include(":app")
+include(
+":app",
+":materialAbout"
+)
