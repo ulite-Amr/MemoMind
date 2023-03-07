@@ -13,7 +13,6 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import com.danielstone.materialaboutlibrary.R;
 import com.danielstone.materialaboutlibrary.holders.MaterialAboutItemViewHolder;
 import com.danielstone.materialaboutlibrary.util.ViewTypeManager;
@@ -150,7 +149,7 @@ public class MaterialAboutActionItem extends MaterialAboutItem {
 
         if (item.getOnClickAction() != null || item.getOnLongClickAction() != null) {
             TypedValue outValue = new TypedValue();
-            context.getTheme().resolveAttribute(R.attr.selectableItemBackground, outValue, true);
+            context.getTheme().resolveAttribute(R.attr.mal_card_background, outValue, true);
             holder.view.setBackgroundResource(outValue.resourceId);
         } else {
             holder.view.setBackgroundResource(0);
