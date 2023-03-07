@@ -1,6 +1,7 @@
 package com.uliteteam.notes.activity;
 
 /*Created By Amr Ayman*/
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -76,7 +77,7 @@ public class NoteActivity extends BaseActivity {
 	
   }
   
-  public void goSettings(){
-		startActivity(new Intent(this,SettingsActivity.class));
+  public void goSettings(Context context){
+		startActivity(new Intent(context,SettingsActivity.class));
 	}
 }

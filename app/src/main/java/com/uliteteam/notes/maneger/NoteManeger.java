@@ -59,13 +59,13 @@ public class NoteManeger extends BaseActivity {
   public ColorOfNote colorOfNote;
 
   public Context context;
-  
 
   public NoteManeger(Context context) {
     this.context = (BaseActivity) context;
   }
-  NoteActivity noteActivity = (NoteActivity) context;
-  Details detailsActivity = (Details) context;
+
+ public NoteActivity noteActivity = (NoteActivity) context;
+ public Details detailsActivity = (Details) context;
 
   String todeysDate = Calendar.getInstance().getTime().toString();
 
@@ -118,14 +118,14 @@ public class NoteManeger extends BaseActivity {
       finish();
       return true;
     } else if (id == R.id.Favorite) {
-	    makeText("Not available yet");
+      makeText("Not available yet");
       return true;
     } else if (id == R.id.settings) {
-		
-			noteActivity.goSettings();
+			noteActivity = (NoteActivity) context;
+      noteActivity.goSettings(context);
       return true;
     } else if (id == R.id.archive) {
-			makeText("Not available yet");
+      makeText("Not available yet");
       return true;
     } else if (id == R.id.copy) {
 
@@ -139,27 +139,27 @@ public class NoteManeger extends BaseActivity {
   }
 
   public void copyNote() {
-	
-	  makeText("Error 404");
-	  
-//    /*Copy Note Text Title And Content
-//    Result :
-//
-//    title: Title Note
-//
-//    content :
-//    Note Content....*/
-//    ClipboardManager clipBoard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
-//    ClipData clip =
-//        ClipData.newPlainText(
-//            "CopyNote",
-//            "Title : "
-//                + noteTitle.getText().toString()
-//                + "\n\n Note Content : "
-//                + "\n"
-//                + noteEdit.getText().toString());
-//    clipBoard.setPrimaryClip(clip);
-//    makeText("Copyed Nite");
+
+    makeText("Error 404");
+
+    //    /*Copy Note Text Title And Content
+    //    Result :
+    //
+    //    title: Title Note
+    //
+    //    content :
+    //    Note Content....*/
+    //    ClipboardManager clipBoard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+    //    ClipData clip =
+    //        ClipData.newPlainText(
+    //            "CopyNote",
+    //            "Title : "
+    //                + noteTitle.getText().toString()
+    //                + "\n\n Note Content : "
+    //                + "\n"
+    //                + noteEdit.getText().toString());
+    //    clipBoard.setPrimaryClip(clip);
+    //    makeText("Copyed Nite");
   }
 
   // Enabled(False),Enabled(True) to switch Preview Mod To Edit Mod loop
@@ -248,7 +248,7 @@ public class NoteManeger extends BaseActivity {
   }
 
   public void checkNameErrors() {
-	   noteActivity = (NoteActivity) context;
+    noteActivity = (NoteActivity) context;
     if (noteTitle.getText().toString().equals("")) {
       noteTitle.setError("Field cannot be empty!");
 
@@ -263,8 +263,7 @@ public class NoteManeger extends BaseActivity {
             selectedNoteColor);
     NoteDataBase db = new NoteDataBase(context);
     db.addNote(note);
-	  noteActivity.onBackPressed();
-                
+    noteActivity.onBackPressed();
   }
 
   public void newCatalog() {
@@ -384,5 +383,4 @@ public class NoteManeger extends BaseActivity {
   public void setEdit(boolean edit) {
     this.edit = edit;
   }
-
 }
