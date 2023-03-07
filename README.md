@@ -26,6 +26,12 @@ Memo Mind is a versatile note-taking app designed for effective organization and
 - [ ] Backup & Restoree
 
 
+### Thanks To
+
+- [Danial stoneuk](https://github.com/daniel-stoneuk) for The Beast [Materyal About](https://github.com/daniel-stoneuk/material-about-library)
+
+
+
 ### Lisence
 ```
 NoteScribe Copyright (C) 2023  Amr Ayman
