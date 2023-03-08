@@ -84,10 +84,7 @@ dependencies {
     implementation(libs.ossLicenses)
     //--------------------------------//
     
-   //---------Google Libs------------//
-       implementation(project(":materialAbout"))
-  //--------------------------------//
-    
+   
     //--------Crash Activity--------//
     implementation(libs.blangj)
     //--------------------------------//

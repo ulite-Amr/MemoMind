@@ -16,6 +16,5 @@ dependencyResolutionManagement {
 }
 rootProject.name = "MemoMind"
 include(
-":app",
-":materialAbout"
+":app"
 )

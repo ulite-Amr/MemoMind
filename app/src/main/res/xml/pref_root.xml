@@ -26,6 +26,7 @@
     <PreferenceScreen
             app:fragment="com.uliteteam.notes.fragment.settings.AboutFragment"
             app:key="about"
+						app:isPreferenceVisible="false"
             app:title="@string/about" />
 
 </PreferenceScreen>
